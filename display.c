@@ -68,6 +68,17 @@ void dsp_set_location(char *location) {
   wrefresh(header);
 }
 
+void dsp_set_round_info(int current_round, int remaining_round_seconds) {
+  int cy, cx;
+  getyx(stdscr, cy, cx);
+  char chstr[256];
+  snprintf(chstr, 256, "Round %d, %d", current_round, remaining_round_seconds);
+  mvwaddstr(header, 0, maxx-strlen(chstr)-1, chstr);
+
+  move(cy, cx);
+  wrefresh(header);
+}
+
 void dsp_set_output(char *str) {
   char buffer[2048];
   waddstr(output, dsp_word_wrap(buffer, str, maxx-2));
