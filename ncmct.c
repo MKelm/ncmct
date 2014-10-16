@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "display.h"
+#include "round.h"
 
 int main(void) {
 
@@ -10,6 +11,8 @@ int main(void) {
 
   dsp_set_location("Earth");
   dsp_set_output("Welcome to Mass Control Tycoon ...");
+
+  round_init();
 
   char *input = dsp_get_input();
 
