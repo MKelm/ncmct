@@ -13,7 +13,7 @@ ncmct.o : ncmct.c display.h round.h
 display.o : display.c display.h
 	$(CC) $(CFLAGS) -c display.c $(LDFLAGS)
 
-round.o : round.c round.h
+round.o : round.c round.h display.h
 	$(CC) $(CFLAGS) -c round.c $(LDFLAGS)
 
 clean :

@@ -10,4 +10,7 @@ void dsp_set_output(char *str);
 
 char *dsp_word_wrap(char* buffer, char* string, int line_width);
 
+#define DSP_INPUT_MODE_CHAR 0
+#define DSP_INPUT_MODE_LINE 1
+
 char *dsp_get_input(void);

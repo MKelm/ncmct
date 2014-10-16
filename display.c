@@ -3,10 +3,11 @@
 #include <locale.h>
 #include <ctype.h>
 #include "display.h"
-#include "round.h"
 
 int maxy, maxx;
 WINDOW *header, *footer, *output, *input;
+
+int current_input_mode = DSP_INPUT_MODE_LINE;
 
 void dsp_init(void) {
   setlocale(LC_ALL, "");
@@ -134,16 +135,11 @@ char *dsp_get_input(void) {
   mvwaddstr(input, 0, 1, ">> ");
   wrefresh(input);
   static char str[128];
-  int i;
-  for (i = 0; i < 128; i++) {
-    halfdelay(round_get_remaining_seconds()*10);
-    str[i] = wgetch(input);
-    if (round_get_remaining_seconds() <= 0 || str[i] == '\n') {
-      str[i] = '\0';
-      break;
-    } else if (str[i] == '\0') {
-      i--;
-    }
+  if (current_input_mode == DSP_INPUT_MODE_LINE) {
+    mvwgetnstr(input, 0, 4, str, 127);
+  } else {
+    str[0] = wgetch(input);
+    str[1] = '\0';
   }
   return str;
 }
