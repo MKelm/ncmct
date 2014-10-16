@@ -33,7 +33,7 @@ void *round_timer(void *val) {
     dsp_set_round_info(round_get_current(), round_get_remaining_seconds());
     sleep(1);
     current_round_seconds++;
-    if (current_round_seconds >= max_round_seconds)
+    if (current_round_seconds > max_round_seconds)
       round_set_next();
   }
   pthread_exit(NULL);
