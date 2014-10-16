@@ -3,6 +3,7 @@
 #include <locale.h>
 #include <ctype.h>
 #include "display.h"
+#include "round.h"
 
 int maxy, maxx;
 WINDOW *header, *footer, *output, *input;
@@ -129,9 +130,20 @@ char *dsp_word_wrap(char* buffer, char* string, int line_width) {
 }
 
 char *dsp_get_input(void) {
-  static char str[128];
   wclear(input);
   mvwaddstr(input, 0, 1, ">> ");
-  mvwgetnstr(input, 0, 4, str, 127);
+  wrefresh(input);
+  static char str[128];
+  int i;
+  for (i = 0; i < 128; i++) {
+    halfdelay(round_get_remaining_seconds()*10);
+    str[i] = wgetch(input);
+    if (round_get_remaining_seconds() <= 0 || str[i] == '\n') {
+      str[i] = '\0';
+      break;
+    } else if (str[i] == '\0') {
+      i--;
+    }
+  }
   return str;
 }
