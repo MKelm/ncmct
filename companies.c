@@ -1,6 +1,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "companies.h"
 
 struct investment_company investment_companies[MAX_INVESTMENT_COMPANIES];
@@ -84,6 +85,35 @@ void investment_companies_sort(void) {
     }
   }
   if (has_change == 1) investment_companies_sort();
+}
+
+char *investment_companies_get_top5(void) {
+  static char str[1024];
+  char ch_str[512], type[128];
+  int i;
+  snprintf(str, 1024, "Top 5 Companies:\n");
+  for (i = 0; i < 5; i++) {
+    strcat(str, investment_companies[i].name);
+
+    switch (investment_companies[i].type) {
+      case COMPANY_TYPE_HARDWARE:
+        snprintf(type, 128, "Hardware");
+        break;
+      case COMPANY_TYPE_SOFTWARE:
+        snprintf(type, 128, "Software");
+        break;
+      case COMPANY_TYPE_ADS:
+        snprintf(type, 128, "Ads");
+        break;
+      case COMPANY_TYPE_DRUGS:
+        snprintf(type, 128, "Drugs");
+        break;
+    }
+
+    snprintf(ch_str, 512, " (%s) - Strength = %.2f\n", type, investment_companies[i].strength);
+    strcat(str, ch_str);
+  }
+  return str;
 }
 
 double companies_f_rand(double f_min, double f_max) {

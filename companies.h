@@ -40,4 +40,6 @@ struct investment_company {
 void investment_companies_init(void);
 void investment_companies_sort(void);
 
+char *investment_companies_get_top5(void);
+
 double companies_f_rand(double f_min, double f_max);
