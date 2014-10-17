@@ -181,7 +181,6 @@ char *companies_get_top5(int type) {
   int i = 0, k = 0, j;
 
   companies_get_type_str(type_str, type);
-
   snprintf(str, 1024, "Top 5 Companies [%s]:\n", type_str);
   while (k < 5) {
     if (companies[i].type == type) {
