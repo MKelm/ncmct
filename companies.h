@@ -33,6 +33,9 @@ struct company {
   int id;
   int type;
   int last_rank;
+  int age; // in rounds
+  int points; // sum of rank values
+  int tl; // techlevel depends on points
   char *name;
   double strength;
   struct company_sub_type sub_types[3];

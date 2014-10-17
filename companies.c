@@ -29,6 +29,9 @@ void companies_init(void) {
 
   for (i = 0; i < MAX_COMPANIES; i++) {
     companies[i].id = i;
+    companies[i].age = 0;
+    companies[i].points = 0;
+    companies[i].tl = 1;
     r = helper_random_int_min_max(0, 4);
     switch (r) {
       case 0:
@@ -66,6 +69,7 @@ void companies_init(void) {
       companies[i].sub_types[j].strength = helper_random_float_min_max(0.0, 10.0);
       companies[i].strength += companies[i].sub_types[j].strength;
     }
+    companies[i].points += companies[i].strength;
   }
 
   companies_sort();
@@ -75,6 +79,7 @@ void companies_recalculate(void) {
   int i, j;
   for (i = 0; i < MAX_COMPANIES; i++) {
     companies[i].last_rank = i;
+    companies[i].age++;
     if (helper_random_probability(0.25) == 1) {
       // 1/4 probability to change strength
       companies[i].strength = 0;
@@ -96,7 +101,7 @@ void companies_recalculate(void) {
         companies[i].strength += companies[i].sub_types[j].strength;
       }
     }
-
+    companies[i].points += companies[i].strength;
   }
   companies_sort();
 }
@@ -187,7 +192,9 @@ char *companies_get_top5(int type) {
       snprintf(ch_str, 512, "%d. ", i+1);
       strcat(str, ch_str);
       strcat(str, companies[i].name);
-      strcat(str, " ");
+      snprintf(ch_str, 512, " TL %d, Points %.2f ",
+        companies[i].tl, (float)companies[i].points);
+      strcat(str, ch_str);
 
       if (companies[i].last_rank == -1) {
         strcat(str, "(new)");
