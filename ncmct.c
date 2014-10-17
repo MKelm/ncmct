@@ -2,12 +2,14 @@
 #include <unistd.h>
 #include <pthread.h>
 #include "display.h"
+#include "helper.h"
 #include "round.h"
 #include "companies.h"
 
 void *main_timer(void *val);
 
 int main(void) {
+  helper_set_random_seed();
 
   companies_init();
 

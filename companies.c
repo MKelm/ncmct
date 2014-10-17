@@ -1,9 +1,7 @@
-#include <time.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-#include "companies.h"
 #include "helper.h"
+#include "companies.h"
 
 struct company companies[MAX_COMPANIES];
 
@@ -16,7 +14,7 @@ char *companies_get_name(char *names[], int type_idx) {
   static int used_names[4][MAX_COMPANY_NAMES];
   int lookup_name = 1, r;
   do {
-    r = rand() % 1000;
+    r = helper_random_int_min_max(0, 1000);
     if (used_names[type_idx][r] != 1) {
       used_names[type_idx][r] = 1;
       return names[r];
@@ -27,12 +25,11 @@ char *companies_get_name(char *names[], int type_idx) {
 }
 
 void companies_init(void) {
-  srand(time(NULL));
   int i, j, r;
 
   for (i = 0; i < MAX_COMPANIES; i++) {
     companies[i].id = i;
-    r = rand() % 4;
+    r = helper_random_int_min_max(0, 4);
     switch (r) {
       case 0:
         companies[i].type = COMPANY_TYPE_HARDWARE;
@@ -66,7 +63,7 @@ void companies_init(void) {
     companies[i].last_rank = -1;
     companies[i].strength = 0.0;
     for (j = 0; j < 3; j++) {
-      companies[i].sub_types[j].strength = helper_random_min_max(0.0, 10.0);
+      companies[i].sub_types[j].strength = helper_random_float_min_max(0.0, 10.0);
       companies[i].strength += companies[i].sub_types[j].strength;
     }
   }
@@ -86,12 +83,12 @@ void companies_recalculate(void) {
           // 1/3 probability to change a single strength
           if (helper_random_probability(0.5) == 1) {
             // 1/2 probability to change a strength up
-            companies[i].sub_types[j].strength = helper_random_min_max(
+            companies[i].sub_types[j].strength = helper_random_float_min_max(
               companies[i].sub_types[j].strength, 10.0
             );
           } else {
             // 1/2 probability to change a strength down
-            companies[i].sub_types[j].strength = helper_random_min_max(
+            companies[i].sub_types[j].strength = helper_random_float_min_max(
               0.0, companies[i].sub_types[j].strength
             );
           }

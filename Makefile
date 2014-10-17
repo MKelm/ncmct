@@ -7,7 +7,7 @@ LDFLAGS = -lncursesw -lpthread -lm
 ncmct : ncmct.o helper.o display.o round.o companies.o
 	$(CC) ncmct.o helper.o display.o round.o companies.o -o ncmct.$(ARCH) $(LDFLAGS)
 
-ncmct.o : ncmct.c display.h round.h companies.h
+ncmct.o : ncmct.c display.h round.h companies.h helper.h
 	$(CC) $(CFLAGS) -c ncmct.c $(LDFLAGS)
 
 helper.o : helper.c helper.h
