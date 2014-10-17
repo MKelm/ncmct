@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "companies.h"
+#include "helper.h"
 
 struct company companies[MAX_COMPANIES];
 
@@ -65,7 +66,7 @@ void companies_init(void) {
     companies[i].last_rank = -1;
     companies[i].strength = 0.0;
     for (j = 0; j < 3; j++) {
-      companies[i].sub_types[j].strength = companies_f_rand(0.0, 10.0);
+      companies[i].sub_types[j].strength = helper_random_min_max(0.0, 10.0);
       companies[i].strength += companies[i].sub_types[j].strength;
     }
   }
@@ -74,14 +75,13 @@ void companies_init(void) {
 }
 
 void companies_recalculate(void) {
-  int i, j, r;
+  int i, j;
   for (i = 0; i < MAX_COMPANIES; i++) {
     companies[i].last_rank = i;
     companies[i].sub_types[j].strength = 0;
     for (j = 0; j < 3; j++) {
-      r = rand() % 10;
-      if (r > 7) {
-        companies[i].sub_types[j].strength = companies_f_rand(0.0, 10.0);
+      if (helper_random_probability(0.3) == 1) {
+        companies[i].sub_types[j].strength = helper_random_min_max(0.0, 10.0);
       }
       companies[i].strength += companies[i].sub_types[j].strength;
     }
@@ -192,9 +192,4 @@ char *companies_get_top5(void) {
   }
   strcat(str, "\n");
   return str;
-}
-
-double companies_f_rand(double f_min, double f_max) {
-    double f = (double)rand() / RAND_MAX;
-    return f_min + f * (f_max - f_min);
 }
