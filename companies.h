@@ -1,4 +1,7 @@
+
 #define MAX_INVESTMENT_COMPANIES 200
+
+#define MAX_COMPANY_NAMES 1000
 
 #define COMPANY_TYPE_HARDWARE 1
 #define COMPANY_TYPE_SOFTWARE 2
@@ -28,6 +31,7 @@ struct company_sub_type {
 };
 
 struct investment_company {
+  char *name;
   int type;
   double strength;
   struct company_sub_type sub_types[3];
