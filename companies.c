@@ -52,33 +52,16 @@ void investment_companies_init(void) {
 }
 
 void investment_companies_sort(void) {
-  int i, j, has_change = 0;
+  int i, has_change = 0;
   struct investment_company tmp_company;
 
   for (i = 0; i < MAX_INVESTMENT_COMPANIES - 1; i++) {
     if (investment_companies[i].strength < investment_companies[i+1].strength) {
       has_change = 1;
 
-      tmp_company.type = investment_companies[i].type;
-      tmp_company.strength = investment_companies[i].strength;
-      for (j = 0; j < 3; j++) {
-        tmp_company.sub_types[j].type = investment_companies[i].sub_types[j].type;
-        tmp_company.sub_types[j].strength = investment_companies[i].sub_types[j].strength;
-      }
-
-      investment_companies[i].type = investment_companies[i+1].type;
-      investment_companies[i].strength = investment_companies[i+1].strength;
-      for (j = 0; j < 3; j++) {
-        investment_companies[i].sub_types[j].type = investment_companies[i+1].sub_types[j].type;
-        investment_companies[i].sub_types[j].strength = investment_companies[i+1].sub_types[j].strength;
-      }
-
-      investment_companies[i+1].type = tmp_company.type;
-      investment_companies[i+1].strength = tmp_company.strength;
-      for (j = 0; j < 3; j++) {
-        investment_companies[i+1].sub_types[j].type = tmp_company.sub_types[j].type;
-        investment_companies[i+1].sub_types[j].strength = tmp_company.sub_types[j].strength;
-      }
+      tmp_company = investment_companies[i];
+      investment_companies[i] = investment_companies[i+1];
+      investment_companies[i+1] = tmp_company;
     }
   }
   if (has_change == 1) investment_companies_sort();
