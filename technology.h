@@ -1,4 +1,4 @@
-#define MAX_TECH_LEVELS 10
+#define MAX_TECH_LEVELS 6
 
 struct tech_level {
   double min_points;
