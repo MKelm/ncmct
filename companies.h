@@ -42,6 +42,8 @@ void companies_init(void);
 void companies_recalculate(void);
 void companies_sort(void);
 
-char *companies_get_top5(void);
+void companies_get_type_str(char *type_str, int type);
+void companies_get_sub_type_str(char *sub_type_str, int sub_type);
+char *companies_get_top5(int type);
 
 double companies_f_rand_min_max(double f_min, double f_max);

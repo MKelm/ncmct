@@ -38,7 +38,7 @@ void *main_timer(void *val) {
         companies_recalculate();
       }
       round_init();
-      dsp_set_output(companies_get_top5());
+      dsp_set_output(companies_get_top5(COMPANY_TYPE_HARDWARE));
     }
     sleep(1);
   }

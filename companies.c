@@ -117,89 +117,102 @@ void companies_sort(void) {
   if (has_change == 1) companies_sort();
 }
 
-char *companies_get_top5(void) {
+void companies_get_type_str(char *type_str, int type) {
+  switch (type) {
+    case COMPANY_TYPE_HARDWARE:
+      snprintf(type_str, 128, "Hardware");
+      break;
+    case COMPANY_TYPE_SOFTWARE:
+      snprintf(type_str, 128, "Software");
+      break;
+    case COMPANY_TYPE_ADS:
+      snprintf(type_str, 128, "Ads");
+      break;
+    case COMPANY_TYPE_DRUGS:
+      snprintf(type_str, 128, "Drugs");
+      break;
+  }
+}
+
+void companies_get_sub_type_str(char *sub_type_str, int sub_type) {
+  switch (sub_type) {
+    case COMPANY_SUB_TYPE_HARDWARE_NET:
+      snprintf(sub_type_str, 128, "NET");
+      break;
+    case COMPANY_SUB_TYPE_HARDWARE_COM:
+      snprintf(sub_type_str, 128, "COM");
+      break;
+    case COMPANY_SUB_TYPE_HARDWARE_SAT:
+      snprintf(sub_type_str, 128, "SAT");
+      break;
+    case COMPANY_SUB_TYPE_SOFTWARE_SCI:
+      snprintf(sub_type_str, 128, "SCI");
+      break;
+    case COMPANY_SUB_TYPE_SOFTWARE_SEC:
+      snprintf(sub_type_str, 128, "SEC");
+      break;
+    case COMPANY_SUB_TYPE_SOFTWARE_PRD:
+      snprintf(sub_type_str, 128, "PRD");
+      break;
+    case COMPANY_SUB_TYPE_ADS_ACO:
+      snprintf(sub_type_str, 128, "ACO");
+      break;
+    case COMPANY_SUB_TYPE_ADS_VIS:
+      snprintf(sub_type_str, 128, "VIS");
+      break;
+    case COMPANY_SUB_TYPE_ADS_THO:
+      snprintf(sub_type_str, 128, "THO");
+      break;
+    case COMPANY_SUB_TYPE_DRUGS_MOO:
+      snprintf(sub_type_str, 128, "MOO");
+      break;
+    case COMPANY_SUB_TYPE_DRUGS_HAL:
+      snprintf(sub_type_str, 128, "HAL");
+      break;
+    case COMPANY_SUB_TYPE_DRUGS_AHA:
+      snprintf(sub_type_str, 128, "AHA");
+      break;
+  }
+}
+
+char *companies_get_top5(int type) {
   static char str[1024];
-  char ch_str[512], type[128];
-  int i, j;
-  snprintf(str, 1024, "Top 5 Companies:\n");
-  for (i = 0; i < 5; i++) {
-    snprintf(ch_str, 512, "%d. ", i+1);
-    strcat(str, ch_str);
-    strcat(str, companies[i].name);
+  char ch_str[512], type_str[128];
+  int i = 0, k = 0, j;
 
-    switch (companies[i].type) {
-      case COMPANY_TYPE_HARDWARE:
-        snprintf(type, 128, "Hardware");
-        break;
-      case COMPANY_TYPE_SOFTWARE:
-        snprintf(type, 128, "Software");
-        break;
-      case COMPANY_TYPE_ADS:
-        snprintf(type, 128, "Ads");
-        break;
-      case COMPANY_TYPE_DRUGS:
-        snprintf(type, 128, "Drugs");
-        break;
-    }
+  companies_get_type_str(type_str, type);
 
-    snprintf(ch_str, 512, " (%s) - strg %.2f - ", type, companies[i].strength);
-    strcat(str, ch_str);
-
-    if (companies[i].last_rank == -1) {
-      strcat(str, "(new)");
-    } else {
-      snprintf(ch_str, 512, "(%d)", companies[i].last_rank - i);
+  snprintf(str, 1024, "Top 5 Companies [%s]:\n", type_str);
+  while (k < 5) {
+    if (companies[i].type == type) {
+      snprintf(ch_str, 512, "%d. ", i+1);
       strcat(str, ch_str);
-    }
-    strcat(str, "\n|-- ");
+      strcat(str, companies[i].name);
+      strcat(str, " ");
 
-    for (j = 0; j < 3; j++) {
-      if (j > 0)
-        strcat(str, "-- ");
-
-      switch (companies[i].sub_types[j].type) {
-        case COMPANY_SUB_TYPE_HARDWARE_NET:
-          snprintf(type, 128, "NET");
-          break;
-        case COMPANY_SUB_TYPE_HARDWARE_COM:
-          snprintf(type, 128, "COM");
-          break;
-        case COMPANY_SUB_TYPE_HARDWARE_SAT:
-          snprintf(type, 128, "SAT");
-          break;
-        case COMPANY_SUB_TYPE_SOFTWARE_SCI:
-          snprintf(type, 128, "SCI");
-          break;
-        case COMPANY_SUB_TYPE_SOFTWARE_SEC:
-          snprintf(type, 128, "SEC");
-          break;
-        case COMPANY_SUB_TYPE_SOFTWARE_PRD:
-          snprintf(type, 128, "PRD");
-          break;
-        case COMPANY_SUB_TYPE_ADS_ACO:
-          snprintf(type, 128, "ACO");
-          break;
-        case COMPANY_SUB_TYPE_ADS_VIS:
-          snprintf(type, 128, "VIS");
-          break;
-        case COMPANY_SUB_TYPE_ADS_THO:
-          snprintf(type, 128, "THO");
-          break;
-        case COMPANY_SUB_TYPE_DRUGS_MOO:
-          snprintf(type, 128, "MOO");
-          break;
-        case COMPANY_SUB_TYPE_DRUGS_HAL:
-          snprintf(type, 128, "HAL");
-          break;
-        case COMPANY_SUB_TYPE_DRUGS_AHA:
-          snprintf(type, 128, "AHA");
-          break;
+      if (companies[i].last_rank == -1) {
+        strcat(str, "(new)");
+      } else {
+        snprintf(ch_str, 512, "(%d)", companies[i].last_rank - i);
+        strcat(str, ch_str);
       }
+      strcat(str, "\n|-- ");
 
-      snprintf(ch_str, 512, "%s = %.2f ", type, companies[i].sub_types[j].strength);
-      strcat(str, ch_str);
+      for (j = 0; j < 3; j++) {
+        if (j > 0)
+          strcat(str, "-- ");
+
+        companies_get_sub_type_str(type_str, companies[i].sub_types[j].type);
+        snprintf(
+          ch_str, 512, "%s = %.2f ",
+          type_str, companies[i].sub_types[j].strength
+        );
+        strcat(str, ch_str);
+      }
+      strcat(str, "\n");
+      k++;
     }
-    strcat(str, "\n");
+    i++;
   }
   strcat(str, "\n");
   return str;
