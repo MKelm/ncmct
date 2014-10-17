@@ -78,12 +78,26 @@ void companies_recalculate(void) {
   int i, j;
   for (i = 0; i < MAX_COMPANIES; i++) {
     companies[i].last_rank = i;
-    companies[i].sub_types[j].strength = 0;
-    for (j = 0; j < 3; j++) {
-      if (helper_random_probability(0.3) == 1) {
-        companies[i].sub_types[j].strength = helper_random_min_max(0.0, 10.0);
+    if (helper_random_probability(0.25) == 1) {
+      // 1/4 probability to change strength
+      companies[i].strength = 0;
+      for (j = 0; j < 3; j++) {
+        if (helper_random_probability(0.333) == 1) {
+          // 1/3 probability to change a single strength
+          if (helper_random_probability(0.5) == 1) {
+            // 1/2 probability to change a strength up
+            companies[i].sub_types[j].strength = helper_random_min_max(
+              companies[i].sub_types[j].strength, 10.0
+            );
+          } else {
+            // 1/2 probability to change a strength down
+            companies[i].sub_types[j].strength = helper_random_min_max(
+              0.0, companies[i].sub_types[j].strength
+            );
+          }
+        }
+        companies[i].strength += companies[i].sub_types[j].strength;
       }
-      companies[i].strength += companies[i].sub_types[j].strength;
     }
 
   }
@@ -131,7 +145,7 @@ char *companies_get_top5(void) {
         break;
     }
 
-    snprintf(ch_str, 512, " (%s) ", type);
+    snprintf(ch_str, 512, " (%s) - strg %.2f - ", type, companies[i].strength);
     strcat(str, ch_str);
 
     if (companies[i].last_rank == -1) {
