@@ -31,8 +31,10 @@ struct company_sub_type {
 };
 
 struct investment_company {
-  char *name;
+  int id;
   int type;
+  int last_rank;
+  char *name;
   double strength;
   struct company_sub_type sub_types[3];
 };

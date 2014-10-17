@@ -30,6 +30,7 @@ void investment_companies_init(void) {
   int i, j, r;
 
   for (i = 0; i < MAX_INVESTMENT_COMPANIES; i++) {
+    investment_companies[i].id = i;
     r = rand() % 4;
     switch (r) {
       case 0:
@@ -61,6 +62,7 @@ void investment_companies_init(void) {
         investment_companies[i].name = companies_get_name(company_names_drugs, r);
         break;
     }
+    investment_companies[i].last_rank = -1;
     investment_companies[i].strength = 0.0;
     for (j = 0; j < 3; j++) {
       investment_companies[i].sub_types[j].strength = companies_f_rand(0.0, 10.0);
@@ -93,6 +95,8 @@ char *investment_companies_get_top5(void) {
   int i;
   snprintf(str, 1024, "Top 5 Companies:\n");
   for (i = 0; i < 5; i++) {
+    snprintf(ch_str, 512, "%d. ", i+1);
+    strcat(str, ch_str);
     strcat(str, investment_companies[i].name);
 
     switch (investment_companies[i].type) {
@@ -110,9 +114,18 @@ char *investment_companies_get_top5(void) {
         break;
     }
 
-    snprintf(ch_str, 512, " (%s) - Strength = %.2f\n", type, investment_companies[i].strength);
+    snprintf(ch_str, 512, " (%s) - Strength = %.2f ", type, investment_companies[i].strength);
     strcat(str, ch_str);
+
+    if (investment_companies[i].last_rank == -1) {
+      strcat(str, "(new)");
+    } else {
+      snprintf(ch_str, 512, "(%d)", investment_companies[i].last_rank - i);
+      strcat(str, ch_str);
+    }
+    strcat(str, "\n");
   }
+  strcat(str, "\n");
   return str;
 }
 

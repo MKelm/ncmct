@@ -9,9 +9,6 @@ void *main_timer(void *val);
 
 int main(void) {
 
-  pthread_t pt_main_timer;
-  pthread_create(&pt_main_timer, NULL, &main_timer, NULL);
-
   investment_companies_init();
 
   dsp_init();
@@ -22,7 +19,8 @@ int main(void) {
   dsp_set_location_cash("Anuka", 10000);
   dsp_set_output("Welcome to Mass Control Tycoon ...\n\n");
 
-  dsp_set_output(investment_companies_get_top5());
+  pthread_t pt_main_timer;
+  pthread_create(&pt_main_timer, NULL, &main_timer, NULL);
 
   char *input = dsp_get_input();
 
@@ -35,6 +33,7 @@ void *main_timer(void *val) {
     // do main timer logic
     if (round_get_current() == 0 || round_get_current_end() == 1) {
       round_init();
+      dsp_set_output(investment_companies_get_top5());
     }
     sleep(1);
   }

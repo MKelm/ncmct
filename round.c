@@ -6,7 +6,7 @@
 int current_round = 0;
 int current_round_end = 0;
 
-int max_round_seconds = 180;
+int max_round_seconds = 5;
 int current_round_seconds = 0;
 
 void round_init(void) {
