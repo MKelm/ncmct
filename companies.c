@@ -73,6 +73,23 @@ void companies_init(void) {
   companies_sort();
 }
 
+void companies_recalculate(void) {
+  int i, j, r;
+  for (i = 0; i < MAX_COMPANIES; i++) {
+    companies[i].last_rank = i;
+    companies[i].sub_types[j].strength = 0;
+    for (j = 0; j < 3; j++) {
+      r = rand() % 10;
+      if (r > 7) {
+        companies[i].sub_types[j].strength = companies_f_rand(0.0, 10.0);
+      }
+      companies[i].strength += companies[i].sub_types[j].strength;
+    }
+
+  }
+  companies_sort();
+}
+
 void companies_sort(void) {
   int i, has_change = 0;
   struct company tmp_company;
@@ -114,7 +131,7 @@ char *companies_get_top5(void) {
         break;
     }
 
-    snprintf(ch_str, 512, " (%s) - Strength = %.2f ", type, companies[i].strength);
+    snprintf(ch_str, 512, " (%s) ", type);
     strcat(str, ch_str);
 
     if (companies[i].last_rank == -1) {

@@ -27,7 +27,6 @@
 struct company_sub_type {
   int type;
   double strength;
-
 };
 
 struct company {
@@ -40,6 +39,7 @@ struct company {
 };
 
 void companies_init(void);
+void companies_recalculate(void);
 void companies_sort(void);
 
 char *companies_get_top5(void);

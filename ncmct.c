@@ -32,6 +32,9 @@ void *main_timer(void *val) {
   while (1) {
     // do main timer logic
     if (round_get_current() == 0 || round_get_current_end() == 1) {
+      if (round_get_current_end() == 1) {
+        companies_recalculate();
+      }
       round_init();
       dsp_set_output(companies_get_top5());
     }
