@@ -4,10 +4,10 @@ CC = gcc
 CFLAGS = -Wall -ggdb
 LDFLAGS = -lncursesw -lpthread -lm
 
-ncmct : ncmct.o helper.o display.o round.o companies.o
-	$(CC) ncmct.o helper.o display.o round.o companies.o -o ncmct.$(ARCH) $(LDFLAGS)
+ncmct : ncmct.o helper.o display.o round.o companies.o technology.o
+	$(CC) ncmct.o helper.o display.o round.o companies.o technology.o -o ncmct.$(ARCH) $(LDFLAGS)
 
-ncmct.o : ncmct.c display.h round.h companies.h helper.h
+ncmct.o : ncmct.c display.h round.h companies.h helper.h technology.h
 	$(CC) $(CFLAGS) -c ncmct.c $(LDFLAGS)
 
 helper.o : helper.c helper.h
@@ -19,7 +19,10 @@ display.o : display.c display.h
 round.o : round.c round.h display.h
 	$(CC) $(CFLAGS) -c round.c $(LDFLAGS)
 
-companies.o : companies.c companies.h helper.h
+technology.o : technology.c technology.h
+	$(CC) $(CFLAGS) -c technology.c $(LDFLAGS)
+
+companies.o : companies.c companies.h helper.h technology.h
 	$(CC) $(CFLAGS) -c companies.c $(LDFLAGS)
 
 clean :

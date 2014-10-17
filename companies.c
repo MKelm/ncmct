@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "helper.h"
+#include "technology.h"
 #include "companies.h"
 
 struct company companies[MAX_COMPANIES];
@@ -102,6 +103,7 @@ void companies_recalculate(void) {
       }
     }
     companies[i].points += companies[i].strength;
+    companies[i].tl = technology_level_get(companies[i].points);
   }
   companies_sort();
 }
