@@ -2,10 +2,11 @@
 #include <string.h>
 #include <locale.h>
 #include <ctype.h>
+#include <math.h>
 #include "display.h"
 
 int maxy, maxx;
-WINDOW *header, *footer, *output, *input;
+WINDOW *header_left, *header_right, *footer, *output, *input;
 
 int current_input_mode = DSP_INPUT_MODE_LINE;
 int current_input_mode_active = 0;
@@ -29,14 +30,17 @@ void dsp_end(void) {
 }
 
 void dsp_windows_init(void) {
-  header = newwin(1, maxx, 0, 0);
+  header_left = newwin(1, ceil((float)maxx*0.8), 0, 0);
+  header_right = newwin(1, floor((float)maxx*0.2), 0, ceil((float)maxx*0.8));
   footer = newwin(1, maxx, maxy-1, 0);
   output = newwin(maxy-5, maxx-2, 2, 1);
   input = newwin(1, maxx, maxy-2, 0);
   refresh();
 
-  wbkgd(header, COLOR_PAIR(1));
-  wrefresh(header);
+  wbkgd(header_left, COLOR_PAIR(1));
+  wrefresh(header_left);
+  wbkgd(header_right, COLOR_PAIR(1));
+  wrefresh(header_right);
 
   wbkgd(footer, COLOR_PAIR(1));
   wrefresh(footer);
@@ -63,25 +67,20 @@ void dsp_set_meta(char *title, char *version, char *author, char *year) {
   wrefresh(footer);
 }
 
-void dsp_set_location(char *location) {
-  wclear(header);
+void dsp_set_location_cash(char *location, int cash) {
+  wclear(header_left);
   char chstr[256];
-  snprintf(chstr, 256, "%s", location);
-  mvwaddstr(header, 0, 1, chstr);
-  wrefresh(header);
+  snprintf(chstr, 256, "%s, %d$", location, cash);
+  mvwaddstr(header_left, 0, 1, chstr);
+  wrefresh(header_left);
 }
 
 void dsp_set_round_info(int current_round, int remaining_round_seconds) {
-  int i;
+  wclear(header_right);
   char chstr[56];
-  snprintf(chstr, 56, " ");
-  for (i = 0; i < 55; i++) {
-    strcat(chstr, " ");
-  }
-  mvwaddstr(header, 0, maxx-strlen(chstr)-1, chstr);
   snprintf(chstr, 56, "Round %d, %d", current_round, remaining_round_seconds);
-  mvwaddstr(header, 0, maxx-strlen(chstr)-1, chstr);
-  wrefresh(header);
+  mvwaddstr(header_right, 0, floor((float)maxx*0.2)-strlen(chstr)-1, chstr);
+  wrefresh(header_right);
   if (current_input_mode_active == 1)
     wrefresh(input);
 }

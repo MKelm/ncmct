@@ -2,7 +2,7 @@
 ARCH := $(shell uname -m)
 CC = gcc
 CFLAGS = -Wall -ggdb
-LDFLAGS = -lncursesw -lpthread
+LDFLAGS = -lncursesw -lpthread -lm
 
 ncmct : ncmct.o display.o round.o
 	$(CC) ncmct.o display.o round.o -o ncmct.$(ARCH) $(LDFLAGS)
