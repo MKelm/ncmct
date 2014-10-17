@@ -9,7 +9,7 @@ void *main_timer(void *val);
 
 int main(void) {
 
-  investment_companies_init();
+  companies_init();
 
   dsp_init();
   dsp_windows_init();
@@ -33,7 +33,7 @@ void *main_timer(void *val) {
     // do main timer logic
     if (round_get_current() == 0 || round_get_current_end() == 1) {
       round_init();
-      dsp_set_output(investment_companies_get_top5());
+      dsp_set_output(companies_get_top5());
     }
     sleep(1);
   }

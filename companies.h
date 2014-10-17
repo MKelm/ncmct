@@ -1,5 +1,5 @@
 
-#define MAX_INVESTMENT_COMPANIES 200
+#define MAX_COMPANIES 200
 
 #define MAX_COMPANY_NAMES 1000
 
@@ -30,7 +30,7 @@ struct company_sub_type {
 
 };
 
-struct investment_company {
+struct company {
   int id;
   int type;
   int last_rank;
@@ -39,9 +39,9 @@ struct investment_company {
   struct company_sub_type sub_types[3];
 };
 
-void investment_companies_init(void);
-void investment_companies_sort(void);
+void companies_init(void);
+void companies_sort(void);
 
-char *investment_companies_get_top5(void);
+char *companies_get_top5(void);
 
 double companies_f_rand(double f_min, double f_max);
