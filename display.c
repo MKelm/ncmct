@@ -8,6 +8,7 @@ int maxy, maxx;
 WINDOW *header, *footer, *output, *input;
 
 int current_input_mode = DSP_INPUT_MODE_LINE;
+int current_input_mode_active = 0;
 
 void dsp_init(void) {
   setlocale(LC_ALL, "");
@@ -81,6 +82,8 @@ void dsp_set_round_info(int current_round, int remaining_round_seconds) {
   snprintf(chstr, 56, "Round %d, %d", current_round, remaining_round_seconds);
   mvwaddstr(header, 0, maxx-strlen(chstr)-1, chstr);
   wrefresh(header);
+  if (current_input_mode_active == 1)
+    wrefresh(input);
 }
 
 void dsp_set_output(char *str) {
@@ -94,31 +97,24 @@ char *dsp_word_wrap(char* buffer, char* string, int line_width) {
   int k, counter;
 
   while (i < strlen(string)) {
-    // copy string until the end of the line is reached
     for (counter = 1; counter <= line_width; counter++) {
-      // check if end of string reached
       if (i == strlen(string)) {
         buffer[i] = 0;
         return buffer;
       }
       buffer[i] = string[i];
-      // check for newlines embedded in the original input
-      // and reset the index
       if (buffer[i] == '\n') {
         counter = 1;
       }
       i++;
     }
-    // check for whitespace
     if (isspace(string[i])) {
       buffer[i] = '\n';
       i++;
     } else {
-      // check for nearest whitespace back in string
       for (k = i; k > 0; k--) {
         if (isspace(string[k])) {
           buffer[k] = '\n';
-          // set string index back to character after this one
           i = k + 1;
           break;
         }
@@ -131,6 +127,8 @@ char *dsp_word_wrap(char* buffer, char* string, int line_width) {
 }
 
 char *dsp_get_input(void) {
+  current_input_mode_active = 1;
+  curs_set(1);
   wclear(input);
   mvwaddstr(input, 0, 1, ">> ");
   wrefresh(input);
@@ -141,5 +139,7 @@ char *dsp_get_input(void) {
     str[0] = wgetch(input);
     str[1] = '\0';
   }
+  curs_set(0);
+  current_input_mode_active = 0;
   return str;
 }
