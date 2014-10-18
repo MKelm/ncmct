@@ -1,43 +1,44 @@
 #include <stdio.h>
-#include <string.h>
 #include "technology.h"
 
-struct company_tech_level company_tech_levels[MAX_TECH_LEVELS];
+struct tech_level tech_levels[MAX_TECH_LEVELS];
 
 int user_tech_level = 0;
 
 void technology_init(void) {
-  company_tech_levels[0].min_points = 0;
-  company_tech_levels[0].min_costs = 0;
+  tech_levels[0].min_points = 0;
+  tech_levels[0].base_costs = 100;
+  tech_levels[0].point_costs = 200;
 
-  company_tech_levels[1].min_points = 100;
-  company_tech_levels[1].min_costs = 1000;
+  tech_levels[1].min_points = 250;
+  tech_levels[1].base_costs = 2000;
+  tech_levels[1].point_costs = 250;
 
-  company_tech_levels[2].min_points = 250;
-  company_tech_levels[2].min_costs = 2000;
+  tech_levels[2].min_points = 500;
+  tech_levels[2].base_costs = 4000;
+  tech_levels[2].point_costs = 500;
 
-  company_tech_levels[3].min_points = 500;
-  company_tech_levels[3].min_costs = 4000;
+  tech_levels[3].min_points = 1000;
+  tech_levels[3].base_costs = 8000;
+  tech_levels[3].point_costs = 1000;
 
-  company_tech_levels[4].min_points = 1000;
-  company_tech_levels[4].min_costs = 8000;
+  tech_levels[4].min_points = 2500;
+  tech_levels[4].base_costs = 16000;
+  tech_levels[4].point_costs = 2500;
 
-  company_tech_levels[5].min_points = 2500;
-  company_tech_levels[5].min_costs = 16000;
+  tech_levels[5].min_points = 5000;
+  tech_levels[5].base_costs = 16000;
+  tech_levels[5].point_costs = 5000;
 }
 
-int technology_get_company_level(double points) {
+int technology_get_level(double points) {
   int i = 0, tl = 0;
   for (i = 0; i < MAX_TECH_LEVELS; i++) {
-    if (points > company_tech_levels[i].min_points) {
+    if (points >= tech_levels[i].min_points) {
       tl++;
     }
   }
   return tl;
-}
-
-int technology_get_user_level(void) {
-  return user_tech_level + 1;
 }
 
 void technology_get_type_str(char *type_str, int type) {

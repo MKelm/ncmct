@@ -21,16 +21,15 @@
 #define TECH_TYPE_DRUGS_HAL 16 // hallucinations
 #define TECH_TYPE_DRUGS_AHA 17 // acoustic hallucinations
 
-struct company_tech_level {
-  double min_points;
-  double min_costs;
+struct tech_level {
+  int min_points; // minimum of points to get tech level
+  int base_costs; // costs for investments in companies
+  int point_costs; // costs for each point for investments in companies
 };
 
 void technology_init(void);
 
-int technology_get_company_level(double points);
-
-int technology_get_user_level(void);
+int technology_get_level(double points);
 
 void technology_get_type_str(char *type_str, int type);
 void technology_get_sub_type_str(char *sub_type_str, int sub_type);

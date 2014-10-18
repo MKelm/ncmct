@@ -118,7 +118,7 @@ void companies_recalculate_single(int i) {
     }
   }
   companies[i].points += companies[i].strength;
-  companies[i].tl = technology_get_company_level(companies[i].points);
+  companies[i].tl = technology_get_level(companies[i].points);
 }
 
 void companies_sort(void) {
@@ -137,12 +137,11 @@ void companies_sort(void) {
   if (has_change == 1) companies_sort();
 }
 
-char *companies_get_top5(int type) {
+char *companies_get_top5(int type, int user_tl) {
   static char str[1024];
   char ch_str[512], type_str[128];
-  int i = 0, k = 0, j, user_tl;
+  int i = 0, k = 0, j;
 
-  user_tl = technology_get_user_level();
   technology_get_type_str(type_str, type);
   snprintf(str, 1024, "Top 5 Companies [%s / TL %d]:\n", type_str, user_tl);
   while (k < 5 && i < MAX_COMPANIES) {
