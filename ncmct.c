@@ -21,7 +21,7 @@ int main(void) {
 
   dsp_set_meta("Mass Control Tycoon", "0.0.1 alpha", "Martin Kelm", "2014");
 
-  dsp_set_location_cash("Anuka", 10000);
+  dsp_set_player_info("Anuka", 10000, technology_get_user_level());
   dsp_set_output("Welcome to Mass Control Tycoon ...\n\n");
 
   pthread_t pt_main_timer;

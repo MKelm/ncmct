@@ -36,5 +36,5 @@ int technology_get_company_level(double points) {
 }
 
 int technology_get_user_level(void) {
-  return user_tech_level;
+  return user_tech_level + 1;
 }
