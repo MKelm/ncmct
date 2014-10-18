@@ -103,7 +103,7 @@ void companies_recalculate(void) {
       }
     }
     companies[i].points += companies[i].strength;
-    companies[i].tl = technology_level_get(companies[i].points);
+    companies[i].tl = technology_get_company_level(companies[i].points);
   }
   companies_sort();
 }
