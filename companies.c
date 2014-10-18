@@ -198,17 +198,17 @@ void companies_get_sub_type_str(char *sub_type_str, int sub_type) {
 char *companies_get_top5(int type) {
   static char str[1024];
   char ch_str[512], type_str[128];
-  int i = 0, k = 0, j;
+  int i = 0, k = 0, j, user_tl;
 
+  user_tl = technology_get_user_level();
   companies_get_type_str(type_str, type);
-  snprintf(str, 1024, "Top 5 Companies [%s]:\n", type_str);
-  while (k < 5) {
-    if (companies[i].type == type) {
+  snprintf(str, 1024, "Top 5 Companies [%s / TL %d]:\n", type_str, user_tl);
+  while (k < 5 && i < MAX_COMPANIES) {
+    if (companies[i].type == type && companies[i].tl == user_tl) {
       snprintf(ch_str, 512, "%d. ", i+1);
       strcat(str, ch_str);
       strcat(str, companies[i].name);
-      snprintf(ch_str, 512, " TL %d, Points %.2f ",
-        companies[i].tl, (float)companies[i].points);
+      snprintf(ch_str, 512, " / Points %.2f ", (float)companies[i].points);
       strcat(str, ch_str);
 
       if (companies[i].last_rank == -1) {
@@ -234,6 +234,9 @@ char *companies_get_top5(int type) {
       k++;
     }
     i++;
+  }
+  if (k == 0) {
+    strcat(str, "No companies available.\n");
   }
   strcat(str, "\n");
   return str;
