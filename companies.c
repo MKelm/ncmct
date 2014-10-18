@@ -149,7 +149,7 @@ char *companies_get_top5(int type, int user_tl) {
       snprintf(ch_str, 512, "%d. ", i+1);
       strcat(str, ch_str);
       strcat(str, companies[i].name);
-      snprintf(ch_str, 512, " / Points %.2f ", (float)companies[i].points);
+      snprintf(ch_str, 512, " / Points %.2f ", (double)companies[i].points);
       strcat(str, ch_str);
 
       if (companies[i].last_rank == -1) {
@@ -158,6 +158,11 @@ char *companies_get_top5(int type, int user_tl) {
         snprintf(ch_str, 512, "(%d)", companies[i].last_rank - i);
         strcat(str, ch_str);
       }
+
+      snprintf(ch_str, 512, " Costs = %.2f",
+        technology_get_costs(companies[i].tl, companies[i].points));
+      strcat(str, ch_str);
+
       strcat(str, "\n|-- ");
 
       for (j = 0; j < 3; j++) {
@@ -172,6 +177,7 @@ char *companies_get_top5(int type, int user_tl) {
         strcat(str, ch_str);
       }
       strcat(str, "\n");
+
       k++;
     }
     i++;

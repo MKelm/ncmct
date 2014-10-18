@@ -1,4 +1,4 @@
-#define MAX_TECH_LEVELS 6
+#define MAX_TECH_LEVELS 7
 
 #define TECH_TYPE_HARDWARE 1
 #define TECH_TYPE_SOFTWARE 2
@@ -30,6 +30,7 @@ struct tech_level {
 void technology_init(void);
 
 int technology_get_level(double points);
+double technology_get_costs(int tl, double points);
 
 void technology_get_type_str(char *type_str, int type);
 void technology_get_sub_type_str(char *sub_type_str, int sub_type);

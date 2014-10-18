@@ -10,25 +10,29 @@ void technology_init(void) {
   tech_levels[0].base_costs = 100;
   tech_levels[0].point_costs = 200;
 
-  tech_levels[1].min_points = 250;
-  tech_levels[1].base_costs = 2000;
-  tech_levels[1].point_costs = 250;
+  tech_levels[1].min_points = 100;
+  tech_levels[1].base_costs = 1000;
+  tech_levels[1].point_costs = 100;
 
-  tech_levels[2].min_points = 500;
-  tech_levels[2].base_costs = 4000;
-  tech_levels[2].point_costs = 500;
+  tech_levels[2].min_points = 250;
+  tech_levels[2].base_costs = 2000;
+  tech_levels[2].point_costs = 250;
 
-  tech_levels[3].min_points = 1000;
-  tech_levels[3].base_costs = 8000;
-  tech_levels[3].point_costs = 1000;
+  tech_levels[3].min_points = 500;
+  tech_levels[3].base_costs = 4000;
+  tech_levels[3].point_costs = 500;
 
-  tech_levels[4].min_points = 2500;
-  tech_levels[4].base_costs = 16000;
-  tech_levels[4].point_costs = 2500;
+  tech_levels[4].min_points = 1000;
+  tech_levels[4].base_costs = 8000;
+  tech_levels[4].point_costs = 1000;
 
-  tech_levels[5].min_points = 5000;
+  tech_levels[5].min_points = 2500;
   tech_levels[5].base_costs = 16000;
-  tech_levels[5].point_costs = 5000;
+  tech_levels[5].point_costs = 2500;
+
+  tech_levels[6].min_points = 5000;
+  tech_levels[6].base_costs = 16000;
+  tech_levels[6].point_costs = 5000;
 }
 
 int technology_get_level(double points) {
@@ -39,6 +43,12 @@ int technology_get_level(double points) {
     }
   }
   return tl;
+}
+
+double technology_get_costs(int tl, double points) {
+  int i = tl - 1;
+  return (double)tech_levels[i].base_costs +
+    points * (double)tech_levels[i].point_costs;
 }
 
 void technology_get_type_str(char *type_str, int type) {
