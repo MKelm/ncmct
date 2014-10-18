@@ -71,41 +71,54 @@ void companies_init(void) {
       companies[i].strength += companies[i].sub_types[j].strength;
     }
     companies[i].points += companies[i].strength;
+
+    if (helper_random_probability(0.25) == 1) {
+      // 1/4 probability to increase age of company at start
+      r = helper_random_int_min_max(0, 10); // max age 10 rounds
+      for (j = 0; j <= r; j++) {
+        companies_recalculate_single(i);
+      }
+    }
   }
 
   companies_sort();
 }
 
 void companies_recalculate(void) {
-  int i, j;
+  int i;
   for (i = 0; i < MAX_COMPANIES; i++) {
     companies[i].last_rank = i;
-    companies[i].age++;
-    if (helper_random_probability(0.25) == 1) {
-      // 1/4 probability to change strength
-      companies[i].strength = 0;
-      for (j = 0; j < 3; j++) {
-        if (helper_random_probability(0.333) == 1) {
-          // 1/3 probability to change a single strength
-          if (helper_random_probability(0.5) == 1) {
-            // 1/2 probability to change a strength up
-            companies[i].sub_types[j].strength = helper_random_float_min_max(
-              companies[i].sub_types[j].strength, 10.0
-            );
-          } else {
-            // 1/2 probability to change a strength down
-            companies[i].sub_types[j].strength = helper_random_float_min_max(
-              0.0, companies[i].sub_types[j].strength
-            );
-          }
-        }
-        companies[i].strength += companies[i].sub_types[j].strength;
-      }
-    }
-    companies[i].points += companies[i].strength;
-    companies[i].tl = technology_get_company_level(companies[i].points);
+    companies_recalculate_single(i);
   }
   companies_sort();
+}
+
+void companies_recalculate_single(int i) {
+  int j;
+  companies[i].age++;
+  if (helper_random_probability(0.25) == 1) {
+    // 1/4 probability to change strength
+    companies[i].strength = 0;
+    for (j = 0; j < 3; j++) {
+      if (helper_random_probability(0.333) == 1) {
+        // 1/3 probability to change a single strength
+        if (helper_random_probability(0.5) == 1) {
+          // 1/2 probability to change a strength up
+          companies[i].sub_types[j].strength = helper_random_float_min_max(
+            companies[i].sub_types[j].strength, 10.0
+          );
+        } else {
+          // 1/2 probability to change a strength down
+          companies[i].sub_types[j].strength = helper_random_float_min_max(
+            0.0, companies[i].sub_types[j].strength
+          );
+        }
+      }
+      companies[i].strength += companies[i].sub_types[j].strength;
+    }
+  }
+  companies[i].points += companies[i].strength;
+  companies[i].tl = technology_get_company_level(companies[i].points);
 }
 
 void companies_sort(void) {

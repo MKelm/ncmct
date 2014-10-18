@@ -43,6 +43,7 @@ struct company {
 
 void companies_init(void);
 void companies_recalculate(void);
+void companies_recalculate_single(int i);
 void companies_sort(void);
 
 void companies_get_type_str(char *type_str, int type);
