@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "technology.h"
 
 struct company_tech_level company_tech_levels[MAX_TECH_LEVELS];
@@ -37,4 +38,62 @@ int technology_get_company_level(double points) {
 
 int technology_get_user_level(void) {
   return user_tech_level + 1;
+}
+
+void technology_get_type_str(char *type_str, int type) {
+  switch (type) {
+    case TECH_TYPE_HARDWARE:
+      snprintf(type_str, 128, "Hardware");
+      break;
+    case TECH_TYPE_SOFTWARE:
+      snprintf(type_str, 128, "Software");
+      break;
+    case TECH_TYPE_ADS:
+      snprintf(type_str, 128, "Ads");
+      break;
+    case TECH_TYPE_DRUGS:
+      snprintf(type_str, 128, "Drugs");
+      break;
+  }
+}
+
+void technology_get_sub_type_str(char *sub_type_str, int sub_type) {
+  switch (sub_type) {
+    case TECH_TYPE_HARDWARE_NET:
+      snprintf(sub_type_str, 128, "NET");
+      break;
+    case TECH_TYPE_HARDWARE_COM:
+      snprintf(sub_type_str, 128, "COM");
+      break;
+    case TECH_TYPE_HARDWARE_SAT:
+      snprintf(sub_type_str, 128, "SAT");
+      break;
+    case TECH_TYPE_SOFTWARE_SCI:
+      snprintf(sub_type_str, 128, "SCI");
+      break;
+    case TECH_TYPE_SOFTWARE_SEC:
+      snprintf(sub_type_str, 128, "SEC");
+      break;
+    case TECH_TYPE_SOFTWARE_PRD:
+      snprintf(sub_type_str, 128, "PRD");
+      break;
+    case TECH_TYPE_ADS_ACO:
+      snprintf(sub_type_str, 128, "ACO");
+      break;
+    case TECH_TYPE_ADS_VIS:
+      snprintf(sub_type_str, 128, "VIS");
+      break;
+    case TECH_TYPE_ADS_THO:
+      snprintf(sub_type_str, 128, "THO");
+      break;
+    case TECH_TYPE_DRUGS_MOO:
+      snprintf(sub_type_str, 128, "MOO");
+      break;
+    case TECH_TYPE_DRUGS_HAL:
+      snprintf(sub_type_str, 128, "HAL");
+      break;
+    case TECH_TYPE_DRUGS_AHA:
+      snprintf(sub_type_str, 128, "AHA");
+      break;
+  }
 }

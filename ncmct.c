@@ -31,13 +31,13 @@ int main(void) {
   do {
     input = dsp_get_input();
     if (strcmp(input, "top5 hardware") == 0) {
-      dsp_set_output(companies_get_top5(COMPANY_TYPE_HARDWARE));
+      dsp_set_output(companies_get_top5(TECH_TYPE_HARDWARE));
     } else if (strcmp(input, "top5 software") == 0) {
-      dsp_set_output(companies_get_top5(COMPANY_TYPE_SOFTWARE));
+      dsp_set_output(companies_get_top5(TECH_TYPE_SOFTWARE));
     } else if (strcmp(input, "top5 ads") == 0) {
-      dsp_set_output(companies_get_top5(COMPANY_TYPE_ADS));
+      dsp_set_output(companies_get_top5(TECH_TYPE_ADS));
     } else if (strcmp(input, "top5 drugs") == 0) {
-      dsp_set_output(companies_get_top5(COMPANY_TYPE_DRUGS));
+      dsp_set_output(companies_get_top5(TECH_TYPE_DRUGS));
     }
   } while (strcmp(input, "quit") != 0);
 
