@@ -35,5 +35,7 @@ double technology_get_max_points(int tl);
 
 double technology_get_costs(int tl, double points);
 
+int technology_get_type_id(char *type_str);
+
 void technology_get_type_str(char *type_str, int type);
 void technology_get_sub_type_str(char *sub_type_str, int sub_type);

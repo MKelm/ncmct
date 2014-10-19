@@ -10,6 +10,7 @@
 #include "player.h"
 
 void *main_timer(void *val);
+void main_split_input(char *input, char input_arr[4][256]);
 
 int main(void) {
   helper_set_random_seed();
@@ -30,22 +31,32 @@ int main(void) {
   pthread_t pt_main_timer;
   pthread_create(&pt_main_timer, NULL, &main_timer, NULL);
 
-  char *input;
+  char input[4][256];
   do {
-    input = dsp_get_input();
-    if (strcmp(input, "top5 hardware") == 0) {
-      dsp_set_output(companies_get_top5(TECH_TYPE_HARDWARE, player_get_tl()));
-    } else if (strcmp(input, "top5 software") == 0) {
-      dsp_set_output(companies_get_top5(TECH_TYPE_SOFTWARE, player_get_tl()));
-    } else if (strcmp(input, "top5 ads") == 0) {
-      dsp_set_output(companies_get_top5(TECH_TYPE_ADS, player_get_tl()));
-    } else if (strcmp(input, "top5 drugs") == 0) {
-      dsp_set_output(companies_get_top5(TECH_TYPE_DRUGS, player_get_tl()));
+    main_split_input(dsp_get_input(), input);
+    if (strcmp(input[0], "top5") == 0 && strlen(input[1]) > 0) {
+      int type_id = technology_get_type_id(input[1]);
+      if (type_id > -1) {
+        dsp_set_output(companies_get_top5(type_id, player_get_tl()));
+      }
     }
-  } while (strcmp(input, "quit") != 0);
+  } while (strcmp(input[0], "quit") != 0);
 
   dsp_end();
   return 0;
+}
+
+void main_split_input(char *input, char input_arr[4][256]) {
+  char *ptr;
+  ptr = strtok(input, " ");
+  int i = 0;
+  while (ptr != NULL) {
+    if (i < 4) {
+      strcpy(input_arr[i], ptr);
+      ptr = strtok(NULL, " ");
+      i++;
+    }
+  }
 }
 
 void *main_timer(void *val) {

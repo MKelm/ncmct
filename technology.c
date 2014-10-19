@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "technology.h"
 
 struct st_tech_level tech_levels[MAX_TECH_LEVELS];
@@ -54,6 +55,19 @@ double technology_get_costs(int tl, double points) {
   int i = tl - 1;
   return (double)tech_levels[i].base_costs +
     points * (double)tech_levels[i].point_costs;
+}
+
+int technology_get_type_id(char *type_str) {
+  if (strcasecmp(type_str, "Hardware") == 0) {
+    return TECH_TYPE_HARDWARE;
+  } else if (strcasecmp(type_str, "Software") == 0) {
+    return TECH_TYPE_SOFTWARE;
+  } else if (strcasecmp(type_str, "Ads") == 0) {
+    return TECH_TYPE_ADS;
+  } else if (strcasecmp(type_str, "Drugs") == 0) {
+    return TECH_TYPE_DRUGS;
+  }
+  return -1;
 }
 
 void technology_get_type_str(char *type_str, int type) {
