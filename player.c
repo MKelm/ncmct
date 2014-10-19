@@ -117,7 +117,7 @@ char *player_get_company_investments(int type) {
   technology_get_type_str(type_str, type);
   snprintf(str, 1024, "Company investments [%s / TL %d]:\n", type_str, player_get_tl());
   for (i = 0; i < PLAYER_MAX_CIS; i++) {
-    if (player_company.cis[i] != NULL) {
+    if (player_company.cis[i] != NULL && player_company.cis[i]->type == type) {
       snprintf(ch_str, 512, "%d. ", i+1);
       strcat(str, ch_str);
       strcat(str, player_company.cis[i]->name);
