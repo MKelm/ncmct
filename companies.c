@@ -11,6 +11,8 @@ char *company_names_software[MAX_COMPANY_NAMES] = { "ApeuSoft","DSoft","PSoft","
 char *company_names_ads[MAX_COMPANY_NAMES] = { "NeenfAds","PoAds","KeAds","OtAds","HiuoAds","MAds","BeiAds","LifteAds","YpiuqAds","MAds","XetmuAds","GhrAds","NuAds","FAds","WuccAds","NAds","GicmAds","FhAds","IokenAds","ChuiAds","VypbAds","SAds","SiguAds","FecijAds","SAds","NAds","FuAds","BAds","RupAds","BuAds","TAds","AuAds","TAds","KyrlAds","YAds","XAds","XeAds","CufmiAds","MirpAds","NoAds","JijnaAds","GovfaAds","NeapaAds","DAds","TujAds","XigiAds","YkAds","IsoAds","CombuAds","NiAds","GyAds","WuaddAds","DoAds","AwAds","DiAds","NiAds","VohAds","AmAds","GAds","GoAds","CoAds","TeAds","AjuzhAds","EAds","HAds","OAds","CisqoAds","QaflAds","UAds","MAds","CAds","AAds","ZAds","DAds","CigwAds","AfetAds","GAds","NAds","IAds","KyaiAds","RudoAds","FAds","XuyjwAds","OeAds","YAds","DAds","AlAds","LiwAds","KeAds","DiAds","LAds","KounAds","GuimAds","ColkAds","CeoAds","SAds","MeiiAds","EseboAds","FeAds","YdAds","CaAds","OAds","JhAds","AlAds","IejAds","PAds","MAds","LytbAds","FawlAds","PymgAds","CifgAds","HeAds","IeceAds","NoeAds","OkunbAds","MotbaAds","NikAds","RyoeAds","SoieAds","CAds","JAds","EAds","VirAds","PuAds","PAds","BiAds","FophAds","HeAds","BaAds","DAds","FaaeAds","PAds","DhsAds","PAds","EyAds","RybhoAds","OAds","PAds","JhbiAds","GAds","GAds","EveAds","DyolyAds","HuhAds","OmoeAds","UokAds","NaAds","JiiwbAds","WAds","PAds","MhluhAds","AsoqAds","RapAds","IhAds","OAds","BAds","HeojAds","EAds","GyxAds","QAds","LifAds","EAds","FivhiAds","AjovjAds","CoAds","ReAds","MynkaAds","QuqAds","KAds","AjihnAds","MepAds","ReuwAds","BAds","EAds","UpAds","QacAds","OAds","NoctAds","EAds","UyAds","KhjocAds","FyohAds","BipdAds","MeAds","IoavhAds","PudtAds","GuAds","NAds","LengAds","PAds","GAds","RAds","LAds","JiyxfAds","AajegAds","MAds","EasuAds","SyhuAds","CAds","UratvAds","GirnaAds","FetAds","PilghAds","ErAds","AAds","IdhAds","LeashAds","FajbaAds","RukeaAds","MAds","FecurAds","IbuAds","GAds","ByAds","LopAds","FAds","GotwuAds","MundiAds","XAds","MoAds","GooeuAds","AuihhAds","PonAds","OioAds","NAds","HedaiAds","IAds","BasniAds","PAds","OAds","OAds","ReckiAds","MAds","KAds","PAds","NivAds","BabAds","CarrAds","UAds","CauxeAds","NuemAds","TAds","RAds","SaAds","MopmAds","LAds","GapvAds","WiwAds","ObhbAds","MeeAds","AfaAds","ZabaxAds","GAds","SAds","GikfAds","LeaeAds","MunhyAds","UbAds","RAds","SAds","SaAds","LoAds","UAds","UlAds","AkeouAds","RAds","HAds","FuqqAds","UAds","SAds","YviAds","SokAds","JAds","SAds","MidpaAds","UyAds","RumpiAds","PAds","UAds","FokjuAds","FAds","UvonAds","VAds","KoAds","TAds","AriAds","QAds","WedbAds","RurmoAds","MAds","XAds","DioeAds","PeskAds","HAds","EAds","LAds","IgAds","OAds","LAds","KekAds","GAds","JedfuAds","PAds","CyAds","LaktAds","AAds","FedlAds","QAds","UeoAds","IAds","LiAds","OAds","GiokAds","JiwAds","OAds","QhmaAds","CeaiAds","LAds","EsaiAds","FAds","TaAds","DoxjoAds","CakAds","JufaAds","GaAds","RoAds","AnuwrAds","DotAds","QieeAds","EfhrAds","IobeAds","SAds","FaAds","GiAds","HuAds","NepbAds","OAds","KuwthAds","KefkhAds","JoAds","CAds","NAds","MojwiAds","CAds","XiAds","ApinpAds","FeAds","RAds","ChvuAds","DaAds","XiAds","EiigAds","UniAds","OAds","PuujAds","VekvaAds","WAds","YAds","SAds","FaftiAds","WeacjAds","UmoulAds","NAds","RufkhAds","GoAds","QAds","XanAds","JoAds","ZapniAds","DAds","MoAds","RelAds","OAds","JegAds","LudAds","DarAds","BajAds","GAds","TAds","OioguAds","MioobAds","FohqiAds","NiAds","NAds","NuAds","KiAds","ShAds","FAds","OpowvAds","TetbAds","TyirwAds","DahgAds","RAds","MiAds","UAds","DikAds","OuwonAds","PAds","ZAds","MhdAds","LenarAds","AeromAds","TAds","CepvaAds","HijAds","AapeAds","NAds","NAds","ZacqoAds","NixdeAds","ToanAds","BaAds","MAds","BanvAds","SunsyAds","NhAds","BodvAds","RAds","JabenAds","CoceAds","SAds","KAds","CAds","WAds","IbysAds","KiiolAds","YmiAds","LAds","KAds","JurAds","SuyegAds","TugAds","CibAds","JAds","UAds","EfikAds","EgAds","IAds","IiAds","DoeAds","RyvviAds","XawcAds","FAds","GaAds","OjohwAds","PemirAds","AAds","MujahAds","CamlhAds","UfhAds","NAds","TAds","DAds","MAds","WeAds","ReipkAds","TAds","KevAds","VugAds","XetbAds","YAds","EcuipAds","PAds","PAds","PaAds","PAds","CoAds","BunloAds","QolsAds","LAds","AAds","InAds","TofAds","GAds","UiaAds","AruAds","SouAds","ParAds","BopAds","MeuwAds","NhsayAds","CobtAds","JAds","CucluAds","GiAds","IsaAds","WigAds","PAds","RyaAds","AruvuAds","SAds","AAds","VohghAds","JofadAds","BudeaAds","HorAds","LaeAds","LuAds","IpAds","BaokAds","AAds","JiAds","TuAds","YdiydAds","EgiAds","TiriAds","BuAds","MAds","LuAds","GAds","RalviAds","JidAds","BAds","FAds","TAds","VyeAds","DAds","PuaogAds","JaAds","IAds","KAds","KAds","HisacAds","PAds","PaecAds","AaAds","TAds","ZAds","ZofAds","RAds","SukoAds","JAds","RAds","VyAds","DeAds","OfoAds","CAds","MAds","VAds","HesvAds","VAds","BAds","RedruAds","BogkAds","BauAds","EdibbAds","MAds","MyxsiAds","UsolAds","RiAds","SAds","ZoidrAds","JeonfAds","MAds","DAds","XolgAds","FaAds","DAds","TufgAds","OAds","OyworAds","TusAds","GAds","KAds","BelAds","GiyamAds","GhjAds","NoacsAds","EvieeAds","HAds","DeswAds","OAds","PoAds","NAds","SeohAds","KAds","SAds","TegAds","MeaAds","PoceaAds","RuhfeAds","VAds","SAds","BangiAds","LuleAds","KaAds","AnylAds","BAds","TAds","AAds","FuvAds","WhmiAds","OhuapAds","CAds","BidcAds","TuAds","KAds","AbysAds","SeruAds","PoebAds","NAds","MiAds","NhuAds","BoaAds","ImAds","VegnAds","SykAds","CAds","IwAds","DoitnAds","HagluAds","GAds","LAds","WAds","RihAds","VikAds","TaeAds","PaAds","AujacAds","ItimAds","LuhrAds","OjiAds","PelAds","HhAds","KaAds","UposAds","XuwuAds","IAds","BAds","IsusAds","SAds","PakiAds","ZovshAds","RuAds","BofhAds","PuoAds","JojbAds","IuuAds","CAds","GAds","GernAds","NAds","DarbiAds","PAds","TagnAds","YAds","OAds","GaaefAds","TAds","QauAds","KiAds","GhAds","LuiAds","AwoAds","RalgAds","DAds","IwepAds","KebfAds","ZAds","UnuAds","OtAds","NAds","DAds","CAds","DuhhAds","BakAds","MigdaAds","OAds","QhdeAds","BuoAds","MiAds","FyrAds","SAds","AqewgAds","KoAds","FonAds","WyoAds","SuAds","EjAds","BAds","AAds","EbyAds","EAds","TinkeAds","BAds","EfurdAds","UAds","PyAds","TAds","KAds","IAds","EAds","NAds","OiyAds","BigogAds","LopAds","AfuAds","XAds","SAds","TawAds","IrAds","TekfAds","GAds","PuqjAds","IAds","YgixgAds","SAds","PuAds","TaiesAds","ZuurAds","NAds","KongeAds","IAds","BAds","BAds","KiegAds","UdubAds","GiexlAds","OnioAds","CimAds","PovkeAds","BadquAds","VesnAds","MatmuAds","AzelAds","EAds","AAds","PaAds","CufAds","MAds","MAds","GifAds","FAds","UAds","ObhAds","DeAds","UjomAds","AAds","IAds","SikuAds","FhmogAds","DAds","EAds","OsAds","DexkaAds","KeAds","TeurtAds","ZAds","PAds","RinyeAds","VAds","IoAds","FuropAds","CowAds","MyisAds","GintaAds","GiAds","BAds","LAds","AsyAds","OenAds","AjaeAds","JudAds","EiAds","IAds","JAds","RevvAds","PyAds","KAds","PupAds","LAds","SiAds","FykAds","GoAds","EfyAds","RuwAds","OhanlAds","QAds","LAds","CAds","XAds","UAds","FAds","RAds","UxosiAds","WajgAds","OgumxAds","OaAds","RerAds","LAds","RAds","CAds","LeAds","AAds","EsoAds","YhuriAds","BAds","FuAds","OAds","FuAds","GifAds","LihsiAds","FeAds","UAds","JirAds","ElAds","AguAds","GijtoAds","AtyAds","RuguAds","KaAds","HAds","OAds","PouAds","ImoAds","TAds","KeAds","SaAds","LuiicAds","FAds","LAds","TAds","RAds","EfiwAds","QelvAds","NAds","LAds","EnoAds","MAds","IchbuAds","BocAds","CicfhAds","XifAds","BosevAds","KonzeAds","NAds","QalaAds","OlidsAds","DokseAds","VazAds","AnAds","HagAds","OAds","IAds","FuabcAds","FAds","ErAds","PoaljAds","MoftAds","RuAds","TAds","DoloAds","VAds","UAds","YnoonAds","RAds","MixduAds","PhlAds","SuAds","KhAds","FadbAds","MAds","LuyucAds","GAds","LessyAds","EpieAds","BieeAds","KAds","VeobAds","GefAds","SAds","WumAds","DooAds","XumwaAds","IgukAds","PAds","WilsuAds","NAds","DAds","RAds","MeqpAds","NuAds","YuoAds","ByjhuAds","JaAds","GieluAds","MoknyAds","ToAds","VesAds","KoroAds","VAds","JihtoAds","NonfAds","CifkeAds","JogdoAds","JigmaAds","TikpeAds","AojeqAds","SAds","NipnaAds","KAds","HiajAds","FAds","RAds","UanocAds","PaceAds","LavivAds","WAds","JAds","TuAds","TiAds","MAds","OdoAds","RuAds","UAds","BAds","FAds","DaAds","EAds","DiAds","BAds","KAds","PAds","IAds","EocoAds","QusziAds","UAds","UbirAds","BicAds","WuunAds","LiAds","WejsAds","BoAds","HAds","UtoAds","GeAds","OkeAds","LaAds","GerneAds","AijAds","SAds","TafaAds","EsuAds","TeAds","DAds","SaejdAds","WoAds","WamtAds","AAds","LomikAds","GoulAds","TAds","JemfAds","TaubeAds","BoytxAds","YhoAds","VhsuAds","AysoAds","WecnoAds","GirAds","MAds","FeAds","DAds","SAds","FemAds","EehAds","ExorAds","RipAds","GuwfAds","JejiAds","JuoicAds","SuaAds","DotlAds","WijAds","CAds","NodAds","FounAds","AkAds","UAds","ArAds","NAds","DoAds","GuufaAds","OlaAds","OAds","BapfiAds","HaggaAds","PAds","TiAds","FenAds","HiatAds","RedAds","JAds","DAds","SAds","CyjAds","KezfAds","KifAds","QAds","FaduyAds" };
 char *company_names_drugs[MAX_COMPANY_NAMES] = { "PLab","CLab","GyiLab","ELab","SepwhLab","TLab","FLab","EomLab","OicuLab","JLab","ULab","KuLab","SLab","ELab","TiaLab","BLab","CoxLab","KLab","SLab","DeLab","JyfmLab","NLab","MLab","MLab","TLab","VLab","RoLab","LifchLab","SurkLab","GLab","LLab","TeqoLab","JLab","XaLab","ELab","GeoLab","DhikLab","ULab","RLab","TyvLab","GumgLab","KexyLab","WyibtLab","FLab","MatLab","AciLab","GokaLab","SiljuLab","MubwuLab","ULab","ViuclLab","NLab","EkhgLab","UwLab","CLab","LLab","FojLab","OLab","JorLab","EjaLab","HokeLab","ToLab","LuLab","KetiLab","GuocmLab","KyvdLab","JoLab","SaLab","WuwlhLab","AkaodLab","JaiLab","JuLab","OazetLab","ZiLab","JLab","MoLab","SLab","FocuLab","CeukrLab","RotLab","AqefLab","PovLab","LyueLab","JLab","AhidfLab","ALab","VLab","SLab","PLab","AfazkLab","VexLab","HLab","RoparLab","PLab","DyugLab","ILab","TyLab","EmeLab","ChLab","LouaLab","OgokLab","KeejLab","OdedLab","ReuLab","GadLab","FoLab","GLab","KodLab","ZucLab","ELab","NelheLab","UsekaLab","GuteyLab","IfitrLab","MLab","ALab","ULab","BigiLab","MupluLab","SoneLab","DomLab","BaLab","LLab","OLab","HenvLab","MorpLab","PinrLab","XLab","JuLab","RhlonLab","MLab","MimjLab","BLab","FLab","JihLab","LevLab","SLab","PhenyLab","OjopLab","ULab","ZLab","VhyeLab","TuLab","NabLab","WeoicLab","EdaeLab","EgLab","GoiaLab","SLab","ZoLab","UgaLab","MauqLab","RuikbLab","EhaiLab","SeyqvLab","DLab","SahneLab","RuxtoLab","PLab","EmyLab","FijLab","BLab","RLab","TLab","PLab","TiyLab","VLab","IjipLab","CLab","OLab","OaqaLab","KorkiLab","FaLab","ALab","OuLab","RisphLab","FidLab","PitLab","SenLab","ELab","HugkaLab","IwugLab","BagliLab","JuLab","FyrLab","IiLab","BLab","AkulsLab","QedLab","JLab","UaLab","BehaLab","ZLab","NLab","JhsiaLab","OciLab","ALab","WLab","KLab","GLab","RuatLab","PekmaLab","KeLab","TedLab","JuLab","WLab","NLab","CojhLab","KiifkLab","DyLab","PaLab","ALab","FowLab","PuLab","HomLab","MieLab","YLab","LLab","RieLab","IaeLab","TiefLab","OenueLab","ExLab","SLab","TLab","GazgaLab","GLab","BLab","QLab","FoLab","VLab","DLab","OkaLab","UheLab","ZushoLab","CLab","VLab","LaauLab","PujimLab","BijpoLab","EwihrLab","DuurmLab","AjakLab","YeeiLab","SosxLab","YnaaoLab","OmLab","PiodLab","RihkLab","NiybrLab","UmoLab","ChdLab","UdLab","XyukoLab","AvacdLab","SLab","IiceiLab","VLab","MoqLab","OLab","VLab","RegtoLab","KLab","RakuLab","MaiLab","ALab","DLab","VeLab","MLab","MLab","TuLab","UosLab","SyxsuLab","BebziLab","LLab","WaLab","KhoLab","XiLab","SeedLab","JidLab","SLab","ULab","QafwuLab","NLab","NivfLab","OLab","FLab","BugonLab","JonLab","BLab","MouLab","KLab","BoLab","IrebeLab","MevLab","SLab","FuworLab","HLab","CiLab","HodjLab","BLab","AnalfLab","SeeybLab","UdossLab","XeninLab","GohatLab","ReraLab","AfevLab","HaLab","PaLab","WiLab","OLab","RyLab","JawiLab","GisveLab","YcLab","CLab","VLab","DLab","HuqsiLab","MLab","BLab","MafsaLab","BileLab","SyjbLab","DLab","LLab","CoiuLab","CyLab","FedwLab","PifliLab","CujfoLab","MitLab","ULab","PabiLab","BodciLab","EuLab","JibwLab","ALab","TLab","XhLab","KiwjuLab","TazpuLab","QhiLab","SadmaLab","SepLab","MLab","MeLab","PoLab","QLab","DLab","MLab","VuLab","SaeLab","QoiLab","CLab","AkaaLab","BelLab","VirLab","ELab","HotLab","FusLab","RaLab","AeLab","IieezLab","BivtLab","JLab","WLab","KofygLab","NoLab","GiydfLab","TLab","OLab","NLab","ItubhLab","PoblLab","ELab","BLab","TLab","RLab","KaLab","MLab","RoupoLab","DectLab","GuuiLab","EeriLab","CutpLab","WotLab","RajLab","CucsLab","NeLab","SolfoLab","LyLab","UuLab","CLab","FoLab","MeibvLab","SisLab","FipLab","VavLab","DLab","DouwLab","KyiLab","GuLab","FiqjLab","EbaLab","ToswLab","IpitnLab","KLab","WaLab","HyfzLab","CykLab","HedLab","PeklLab","BLab","ZLab","LLab","HanwLab","NisdeLab","OofLab","DoLab","WiLab","ExarLab","ALab","GobLab","LLab","ELab","GioxeLab","OuexLab","HLab","NagaLab","CemLab","KeferLab","DLab","UlesoLab","CemLab","DLab","ZeurLab","FhnaLab","SepoLab","HLab","OtLab","JLab","SavguLab","BepchLab","NLab","KohLab","EhLab","BywfeLab","LajLab","HLab","WLab","ALab","RLab","JenLab","ToLab","WadtuLab","MitLab","JiLab","PiLab","PiLab","RLab","JLab","AaoLab","UtagLab","ULab","MuLab","WLab","ZLab","SoqeLab","DLab","AzosLab","OseLab","TiiLab","EcyjLab","TeLab","DorLab","MLab","ApiLab","LepoiLab","RosLab","GLab","AsLab","ALab","RhefeLab","SoudLab","SLab","UkaeLab","QeulfLab","LumpLab","AlobLab","OLab","DaawLab","ToiLab","JLab","HLab","DocLab","VLab","ViijdLab","BLab","YodLab","AywamLab","NanfuLab","MiiLab","BoLab","CLab","LowlLab","FoveuLab","NLab","SLab","HasqhLab","WekLab","CatLab","LaLab","NLab","CafnLab","KylLab","GhLab","TyineLab","BumLab","ZLab","SeLab","ShhacLab","IkLab","SLab","NiaxLab","OcLab","RyLab","OLab","OLab","ULab","BLab","DLab","QocvLab","LLab","JodLab","YLab","KebLab","MetLab","AniLab","NudijLab","ULab","FoyLab","LuaxLab","ULab","VuLab","CLab","EpLab","WLab","PLab","MaggLab","LiLab","UqifLab","ThuLab","JudsLab","LicvLab","LLab","LLab","SobLab","IgLab","RaLab","TobduLab","SiLab","LavLab","VLab","GiLab","ChthfLab","VhghLab","PaLab","TLab","EjuspLab","XLab","RaibjLab","BLab","AbutdLab","KLab","JeusnLab","NokiLab","CueLab","JoadLab","SijgiLab","PerbiLab","ZiLab","GivLab","MLab","GyomLab","WLab","BLab","BoooqLab","AmLab","EfyLab","TiLab","RLab","MidLab","UrumLab","VodwaLab","OekyLab","HugmiLab","GujLab","WaofLab","NLab","LoepLab","IfaLab","TonomLab","ULab","MuruLab","MabgeLab","KLab","DawshLab","PLab","IrLab","VevLab","WLab","VLab","LLab","DekpuLab","RujmLab","OgLab","YLab","KLab","ULab","BLab","KudgLab","VodniLab","HoshiLab","DLab","RavLab","EteseLab","LitgeLab","FubveLab","BihcLab","VehLab","DerLab","GanubLab","KLab","MLab","PLab","DabhLab","CLab","DindLab","QiqkiLab","UwaygLab","UduLab","IuLab","HofLab","TLab","KohqLab","PeubbLab","ALab","WLab","PLab","XLab","SLab","ZoiLab","LLab","TaznLab","YLab","RopsLab","CeLab","QaLab","RLab","PLab","MifLab","InenLab","KoifLab","ImoocLab","FLab","SeLab","MLab","GoLab","AuguhLab","DagLab","FimlaLab","SilaLab","EboLab","OLab","PyLab","RovLab","PLab","OLab","LLab","AfaLab","SypLab","DLab","WatqiLab","KuLab","BoLab","FudkaLab","NujLab","CeLab","KaLab","HyLab","LifdLab","UkauoLab","HelwiLab","UaLab","VekcyLab","FyLab","AxemLab","YfLab","RieLab","MLab","RekbaLab","CLab","NLab","RaepLab","UkLab","NosmiLab","NLab","BotLab","LoypdLab","KouunLab","KLab","XuLab","OlLab","LiuLab","SymsLab","YLab","LLab","LhLab","GiadLab","PLab","LocmLab","SubfLab","NLab","ELab","FLab","ELab","DLab","SivLab","CuLab","DLab","NLab","GejLab","IafiuLab","OLab","WLab","OrLab","HLab","NimLab","HoayLab","MuikLab","MLab","KaLab","JeruLab","NeruwLab","OLab","NeljLab","ToLab","UobauLab","KuosnLab","UsiebLab","GucjiLab","KadrLab","OLab","QounLab","RLab","FilymLab","KouLab","FiLab","NueLab","QimLab","CosLab","TeLab","DLab","WetkuLab","YLab","ILab","BecryLab","IvhufLab","PLab","QLab","SaolLab","QulmLab","BiddLab","TigunLab","OLab","SatlLab","FeaeLab","SLab","ILab","ALab","UlobLab","NLab","MiowiLab","JobLab","CeuiLab","OcouLab","MLab","SoLab","VowvaLab","NuLab","JewLab","ItocgLab","ToziLab","SaLab","TLab","JLab","ILab","NhLab","ALab","HedlLab","AzizpLab","KhLab","RaLab","FLab","GefLab","PLab","RuqdoLab","EeLab","XesqLab","LLab","ItLab","WhteaLab","DijjyLab","XLab","UefiLab","ELab","KumLab","MoLab","SLab","RLab","JerLab","AnLab","OjaLab","HopLab","DoidLab","NioteLab","OodiLab","VaLab","OxonLab","XioLab","AlLab","RLab","DeLab","JoLab","DLab","QiLab","GuolLab","ILab","KaLab","MLab","GupLab","JoeLab","IwujpLab","TaLab","GLab","HLab","ALab","DulLab","NufLab","HuwwhLab","EevicLab","UkeLab","CipfeLab","MLab","IqeLab","OLab","XLab","BLab","NugbLab","GicwoLab","ShLab","TunLab","NegLab","ZijLab","FLab","FLab","MuLab","KLab","MLab","GLab","KicbiLab","MhlodLab","FLab","JuyvLab","TagiLab","RLab","NoelbLab","CLab","FofmLab","PijlyLab","LyLab","LyeLab","KLab","IaamLab","OcLab","MuxmaLab","VLab","ZLab","BufjoLab","MLab","QorjLab","ShsuLab","NeLab","CLab","ReLab","IimLab","RhfhLab","SakaeLab","MhlunLab","TeiLab","NeLab","OiLab","AreLab","NLab","MLab","HLab","BaLab","OtojlLab","IuLab","NitLab","ZeLab","LobLab","RoccLab","GieLab","GhrLab","ChewLab","ReblLab","OoLab","FudvLab","JouLab","UhiafLab","DonLab","KeLab","BuLab","KijrLab","BLab","SLab","RyekqLab","TLab","SatmLab","SikopLab","FLab","BijbyLab","GLab","RoLab","VhjeyLab","LyjzLab","EjowsLab","SotqeLab","OLab","RufdyLab","KLab","JaLab","RixLab","CijrLab","NopLab","SeLab","PLab","PipmLab","JuidaLab","FigLab","JehrLab","QebcLab","XLab","AbipLab","WygneLab","SLab","QinLab","KLab","EjoocLab","FaLab","BeLab","ApatLab","PuhdoLab","IlugaLab","TLab","KunaLab","TLab","FuLab","DLab","OLab","HorarLab","ILab","LutfaLab","LeLab","PLab","PLab","LiLab","RimLab","DegnLab","FLab","SeoLab","CubraLab","HoefLab","ULab","ZumLab","GicLab","HLab","PLab","ELab","DorLab","AgLab","ReifLab","HLab","DoLab","RLab","HuLab","SovjLab" };
 
+int last_company_id = 0;
+
 char *companies_get_name(char *names[], int type_idx) {
   static int used_names[4][MAX_COMPANY_NAMES];
   int lookup_name = 1, r;
@@ -26,69 +28,77 @@ char *companies_get_name(char *names[], int type_idx) {
 }
 
 void companies_init(void) {
-  int i, j, r;
-
+  int i;
   for (i = 0; i < MAX_COMPANIES; i++) {
-    companies[i].id = i;
-    companies[i].age = 0;
-    companies[i].points = 0;
-    companies[i].tl = 1;
-    r = helper_random_int_min_max(0, 4);
-    switch (r) {
-      case 0:
-        companies[i].type = TECH_TYPE_HARDWARE;
-        companies[i].sub_types[0].type = TECH_TYPE_HARDWARE_NET;
-        companies[i].sub_types[1].type = TECH_TYPE_HARDWARE_COM;
-        companies[i].sub_types[2].type = TECH_TYPE_HARDWARE_SAT;
-        companies[i].name = companies_get_name(company_names_hardware, r);
-        break;
-      case 1:
-        companies[i].type = TECH_TYPE_SOFTWARE;
-        companies[i].sub_types[0].type = TECH_TYPE_SOFTWARE_SCI;
-        companies[i].sub_types[1].type = TECH_TYPE_SOFTWARE_SEC;
-        companies[i].sub_types[2].type = TECH_TYPE_SOFTWARE_PRD;
-        companies[i].name = companies_get_name(company_names_software, r);
-        break;
-      case 2:
-        companies[i].type = TECH_TYPE_ADS;
-        companies[i].sub_types[0].type = TECH_TYPE_ADS_ACO;
-        companies[i].sub_types[1].type = TECH_TYPE_ADS_VIS;
-        companies[i].sub_types[2].type = TECH_TYPE_ADS_THO;
-        companies[i].name = companies_get_name(company_names_ads, r);
-        break;
-      case 3:
-        companies[i].type = TECH_TYPE_DRUGS;
-        companies[i].sub_types[0].type = TECH_TYPE_DRUGS_MOO;
-        companies[i].sub_types[1].type = TECH_TYPE_DRUGS_HAL;
-        companies[i].sub_types[2].type = TECH_TYPE_DRUGS_AHA;
-        companies[i].name = companies_get_name(company_names_drugs, r);
-        break;
-    }
-    companies[i].last_rank = -1;
-    companies[i].strength = 0.0;
-    for (j = 0; j < 3; j++) {
-      companies[i].sub_types[j].strength = helper_random_float_min_max(0.0, 10.0);
-      companies[i].strength += companies[i].sub_types[j].strength;
-    }
-    companies[i].points += companies[i].strength;
+    companies_add_single(i);
+  }
+  companies_sort();
+}
 
-    if (helper_random_probability(0.25) == 1) {
-      // 1/4 probability to increase age of company at start
-      r = helper_random_int_min_max(0, 10); // max age 10 rounds
-      for (j = 0; j <= r; j++) {
-        companies_recalculate_single(i);
-      }
+void companies_add_single(int i) {
+  int j, r;
+  companies[i].id = last_company_id++;
+  companies[i].age = 0;
+  companies[i].points = 0;
+  companies[i].tl = 1;
+  r = helper_random_int_min_max(0, 4);
+  switch (r) {
+    case 0:
+      companies[i].type = TECH_TYPE_HARDWARE;
+      companies[i].sub_types[0].type = TECH_TYPE_HARDWARE_NET;
+      companies[i].sub_types[1].type = TECH_TYPE_HARDWARE_COM;
+      companies[i].sub_types[2].type = TECH_TYPE_HARDWARE_SAT;
+      companies[i].name = companies_get_name(company_names_hardware, r);
+      break;
+    case 1:
+      companies[i].type = TECH_TYPE_SOFTWARE;
+      companies[i].sub_types[0].type = TECH_TYPE_SOFTWARE_SCI;
+      companies[i].sub_types[1].type = TECH_TYPE_SOFTWARE_SEC;
+      companies[i].sub_types[2].type = TECH_TYPE_SOFTWARE_PRD;
+      companies[i].name = companies_get_name(company_names_software, r);
+      break;
+    case 2:
+      companies[i].type = TECH_TYPE_ADS;
+      companies[i].sub_types[0].type = TECH_TYPE_ADS_ACO;
+      companies[i].sub_types[1].type = TECH_TYPE_ADS_VIS;
+      companies[i].sub_types[2].type = TECH_TYPE_ADS_THO;
+      companies[i].name = companies_get_name(company_names_ads, r);
+      break;
+    case 3:
+      companies[i].type = TECH_TYPE_DRUGS;
+      companies[i].sub_types[0].type = TECH_TYPE_DRUGS_MOO;
+      companies[i].sub_types[1].type = TECH_TYPE_DRUGS_HAL;
+      companies[i].sub_types[2].type = TECH_TYPE_DRUGS_AHA;
+      companies[i].name = companies_get_name(company_names_drugs, r);
+      break;
+  }
+  companies[i].last_rank = -1;
+  companies[i].strength = 0.0;
+  for (j = 0; j < 3; j++) {
+    companies[i].sub_types[j].strength = helper_random_float_min_max(0.0, 10.0);
+    companies[i].strength += companies[i].sub_types[j].strength;
+  }
+  companies[i].points += companies[i].strength;
+
+  if (helper_random_probability(0.25) == 1) {
+    // 1/4 probability to increase age of company at start
+    r = helper_random_int_min_max(0, 10); // max age 10 rounds
+    for (j = 0; j <= r; j++) {
+      companies_recalculate_single(i);
     }
   }
-
-  companies_sort();
 }
 
 void companies_recalculate(void) {
   int i;
   for (i = 0; i < MAX_COMPANIES; i++) {
-    companies[i].last_rank = i;
-    companies_recalculate_single(i);
+    if (helper_random_probability(((double)(i+1)/MAX_COMPANIES) * 0.01333) == 1) {
+      // max 1/75 probability to change company to new one
+      companies_add_single(i);
+    } else {
+      companies[i].last_rank = i;
+      companies_recalculate_single(i);
+    }
   }
   companies_sort();
 }

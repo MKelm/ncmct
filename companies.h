@@ -21,6 +21,7 @@ struct company {
 };
 
 void companies_init(void);
+void companies_add_single(int i);
 void companies_recalculate(void);
 void companies_recalculate_single(int i);
 void companies_sort(void);
