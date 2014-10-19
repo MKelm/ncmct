@@ -25,7 +25,7 @@ technology.o : technology.c technology.h
 companies.o : companies.c companies.h helper.h technology.h
 	$(CC) $(CFLAGS) -c companies.c $(LDFLAGS)
 
-player.o : player.c player.h
+player.o : player.c player.h companies.h technology.h
 	$(CC) $(CFLAGS) -c player.c $(LDFLAGS)
 
 clean :
