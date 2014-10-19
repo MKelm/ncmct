@@ -33,6 +33,7 @@ struct st_player_company {
 void player_init(void);
 
 int player_add_company_investment(struct st_company *company);
+char *player_get_company_investments(int type);
 
 int player_get_tl(void);
 float player_get_cash(void);

@@ -197,7 +197,6 @@ char *companies_get_top5(int type, int user_tl) {
       strcat(str, ch_str);
 
       strcat(str, "\n|-- ");
-
       for (j = 0; j < 3; j++) {
         if (j > 0)
           strcat(str, "-- ");

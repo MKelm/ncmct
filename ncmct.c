@@ -38,7 +38,14 @@ int main(void) {
   do {
     main_split_input(dsp_get_input(), input);
 
-    if (strcmp(input[0], "top5") == 0 && strlen(input[1]) > 0) {
+    if (strcmp(input[0], "investments") == 0 && strlen(input[1]) > 0) {
+      // investments of companies by type / player's tech level
+      int type_id = technology_get_type_id(input[1]);
+      if (type_id > -1) {
+        dsp_set_output(player_get_company_investments(type_id));
+      }
+
+    } else if (strcmp(input[0], "top5") == 0 && strlen(input[1]) > 0) {
       // top 5 list of companies by type / player's tech level
       int type_id = technology_get_type_id(input[1]);
       if (type_id > -1) {
