@@ -26,7 +26,7 @@ int main(void) {
   dsp_init();
   dsp_windows_init();
 
-  dsp_set_meta("Mass Control Tycoon", "0.0.1 alpha", "Martin Kelm", "2014");
+  dsp_set_meta("Mass Control Tycoon", "0.0.2 alpha", "Martin Kelm", "2014");
 
   dsp_set_player_info("Anuka", player_get_cash(), player_get_tl());
   dsp_set_output("Welcome to Mass Control Tycoon ...\n\n");
