@@ -21,7 +21,7 @@
 #define TECH_TYPE_DRUGS_HAL 16 // hallucinations
 #define TECH_TYPE_DRUGS_AHA 17 // acoustic hallucinations
 
-struct tech_level {
+struct st_tech_level {
   int min_points; // minimum of points for each tech sub type
   int max_points; // maximum of points for each tech sub type
   int base_costs; // costs for investments in companies

@@ -1,14 +1,12 @@
-
 #define MAX_COMPANIES 200
-
 #define MAX_COMPANY_NAMES 1000
 
-struct company_sub_type {
+struct st_company_sub_type {
   int type;
   double points;
 };
 
-struct company {
+struct st_company {
   int id;
   int type;
   int last_rank;
@@ -16,7 +14,7 @@ struct company {
   int tl; // technology level
   char *name;
   double points; // sum of sub types costs
-  struct company_sub_type sub_types[3];
+  struct st_company_sub_type sub_types[3];
 };
 
 void companies_init(void);

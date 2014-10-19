@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "technology.h"
 
-struct tech_level tech_levels[MAX_TECH_LEVELS];
+struct st_tech_level tech_levels[MAX_TECH_LEVELS];
 
 int user_tech_level = 0;
 
