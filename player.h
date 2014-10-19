@@ -1,3 +1,5 @@
+#include "companies.h"
+
 #define PLAYER_MAX_TITLE_CHARS 256
 #define PLAYER_MAX_TPS 12
 #define PLAYER_MAX_CIS 20
@@ -7,7 +9,7 @@ struct st_player_company {
   int tl; // tech level
   double tps[PLAYER_MAX_TPS]; // tech points for each tech sub type
   double cash;
-  int cis[PLAYER_MAX_CIS]; // company investments by company id
+  struct st_company *cis[PLAYER_MAX_CIS]; // company investments
   int cis_idx;
 };
 
@@ -30,7 +32,7 @@ struct st_player_company {
 
 void player_init(void);
 
-int player_add_ci(int cid, double costs);
+int player_add_company(struct st_company *company);
 
 int player_get_tl(void);
 double player_get_cash(void);

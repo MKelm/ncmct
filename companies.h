@@ -1,3 +1,5 @@
+#ifndef MAX_COMPANIES
+
 #define MAX_COMPANIES 200
 #define MAX_COMPANY_NAMES 1000
 
@@ -23,7 +25,8 @@ void companies_recalculate(void);
 void companies_recalculate_single(int i);
 void companies_sort(void);
 
-int companies_get_cid(int i, int tl);
-float companies_get_ccosts(int id);
+struct st_company *companies_get_company(int i, int tl);
 
 char *companies_get_top5(int type, int user_tl);
+
+#endif

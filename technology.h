@@ -1,3 +1,5 @@
+#ifndef MAX_TECH_LEVELS
+
 #define MAX_TECH_LEVELS 7
 
 #define TECH_TYPE_HARDWARE 1
@@ -39,3 +41,5 @@ int technology_get_type_id(char *type_str);
 
 void technology_get_type_str(char *type_str, int type);
 void technology_get_sub_type_str(char *sub_type_str, int sub_type);
+
+#endif

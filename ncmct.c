@@ -43,8 +43,7 @@ int main(void) {
         dsp_set_output(companies_get_top5(type_id, player_get_tl()));
       }
     } else if (strcmp(input[0], "invest") == 0 && strlen(input[1]) > 0) {
-      int cid = companies_get_cid(atoi(input[1])-1, player_get_tl());
-      if (cid > -1 && player_add_ci(cid, companies_get_ccosts(cid)) == 1) {
+      if (player_add_company(companies_get_company(atoi(input[1])-1, player_get_tl())) == 1) {
         player_info_change = 1;
         dsp_set_output("Company investment done.\n\n");
       }

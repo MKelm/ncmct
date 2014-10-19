@@ -1,5 +1,6 @@
 #include <string.h>
 #include "player.h"
+#include "technology.h"
 
 struct st_player_company player_company;
 
@@ -12,17 +13,20 @@ void player_init(void) {
   }
   player_company.cash = 10000.00;
   for (i = 0; i < PLAYER_MAX_CIS; i++) {
-    player_company.cis[i] = -1;
+    player_company.cis[i] = NULL;
   }
   player_company.cis_idx = 0;
 }
 
-int player_add_ci(int cid, double costs) {
-  if (costs <= player_company.cash && player_company.cis_idx < PLAYER_MAX_CIS) {
-    player_company.cash -= costs;
-    player_company.cis[player_company.cis_idx] = cid;
-    player_company.cis_idx++;
-    return 1;
+int player_add_company(struct st_company *company) {
+  if (company != NULL) {
+    double costs = technology_get_costs(company->tl, company->points);
+    if (costs <= player_company.cash && player_company.cis_idx < PLAYER_MAX_CIS) {
+      player_company.cash -= costs;
+      player_company.cis[player_company.cis_idx] = company;
+      player_company.cis_idx++;
+      return 1;
+    }
   }
   return -1;
 }
