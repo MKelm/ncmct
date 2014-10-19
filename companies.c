@@ -142,17 +142,18 @@ void companies_recalculate_single(int i) {
   }
 }
 
+void companies_swap(struct st_company *a, struct st_company *b) {
+  struct st_company tmp = *a;
+  *a = *b;
+  *b = tmp;
+}
+
 void companies_sort(void) {
   int i, has_change = 0;
-  struct st_company tmp_company;
-
   for (i = 0; i < MAX_COMPANIES - 1; i++) {
     if (companies[i].points < companies[i+1].points) {
       has_change = 1;
-
-      tmp_company = companies[i];
-      companies[i] = companies[i+1];
-      companies[i+1] = tmp_company;
+      companies_swap(&companies[i], &companies[i+1]);
     }
   }
   if (has_change == 1) companies_sort();
