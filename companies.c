@@ -90,7 +90,7 @@ void companies_add_single(int i) {
 void companies_recalculate(void) {
   int i;
   for (i = 0; i < MAX_COMPANIES; i++) {
-    if (helper_random_probability(((double)(i+1)/MAX_COMPANIES) * 0.01333) == 1) {
+    if (helper_random_probability(((float)(i+1)/MAX_COMPANIES) * 0.01333) == 1) {
       // max 1/75 probability to change company to new one
       companies_add_single(i);
     } else {
@@ -170,7 +170,7 @@ int companies_get_cid(int i, int tl) {
   return -1;
 }
 
-double companies_get_ccosts(int id) {
+float companies_get_ccosts(int id) {
   int i;
   for (i = 0; i < MAX_COMPANIES - 1; i++) {
     if (companies[i].id == id) {

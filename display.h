@@ -4,7 +4,7 @@ void dsp_end(void);
 void dsp_windows_init(void);
 
 void dsp_set_meta(char *title, char *version, char *author, char *year);
-void dsp_set_player_info(char *location, double cash, int tech_level);
+void dsp_set_player_info(char *location, float cash, int tech_level);
 void dsp_set_round_info(int current_round, int remaining_round_seconds);
 void dsp_set_output(char *str);
 

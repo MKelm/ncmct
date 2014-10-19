@@ -3,7 +3,7 @@
 
 struct st_company_sub_type {
   int type;
-  double points;
+  float points;
 };
 
 struct st_company {
@@ -13,7 +13,7 @@ struct st_company {
   int age; // in rounds
   int tl; // technology level
   char *name;
-  double points; // sum of sub types costs
+  float points; // sum of sub types costs
   struct st_company_sub_type sub_types[3];
 };
 
@@ -24,8 +24,6 @@ void companies_recalculate_single(int i);
 void companies_sort(void);
 
 int companies_get_cid(int i, int tl);
-double companies_get_ccosts(int id);
+float companies_get_ccosts(int id);
 
 char *companies_get_top5(int type, int user_tl);
-
-double companies_f_rand_min_max(double f_min, double f_max);
