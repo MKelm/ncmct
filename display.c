@@ -73,6 +73,8 @@ void dsp_set_player_info(char *location, float cash, int tech_level) {
   snprintf(chstr, 256, "%s / %.2f$ / TL %d", location, cash, tech_level);
   mvwaddstr(header_left, 0, 1, chstr);
   wrefresh(header_left);
+  if (current_input_mode_active == 1)
+    wrefresh(input);
 }
 
 void dsp_set_round_info(int current_round, int remaining_round_seconds) {

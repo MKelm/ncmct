@@ -48,6 +48,9 @@ int main(void) {
         player_info_change = 1;
         dsp_set_output("Company investment done.\n\n");
       }
+    } else if (strcmp(input[0], "next") == 0 && strcmp(input[1], "round") == 0) {
+      dsp_set_output("Set next round done.\n\n");
+      round_set_current_end();
     }
   } while (strcmp(input[0], "quit") != 0);
 
@@ -79,6 +82,7 @@ void *main_timer(void *val) {
     }
     if (player_info_change == 1) {
       dsp_set_player_info("Anuka", player_get_cash(), player_get_tl());
+      player_info_change = 0;
     }
     sleep(1);
   }
