@@ -19,6 +19,53 @@ void player_init(void) {
   player_company.cis_idx = 0;
 }
 
+void player_update_company_investments(void) {
+  int i;
+  for (i = 0; i < PLAYER_MAX_CIS; i++) {
+    if (player_company.cis[i] != NULL) {
+      if (player_company.cis[i]->age == 0) {
+        player_company.cis[i] = NULL;
+
+      } else {
+        switch (player_company.cis[i]->type) {
+          case TECH_TYPE_HARDWARE:
+            player_company.tps[PLAYER_TPS_IDX_HARDWARE_NET] +=
+              player_company.cis[i]->sub_types[COMPANY_ST_IDX_HARDWARE_NET].points;
+            player_company.tps[PLAYER_TPS_IDX_HARDWARE_COM] +=
+              player_company.cis[i]->sub_types[COMPANY_ST_IDX_HARDWARE_COM].points;
+            player_company.tps[PLAYER_TPS_IDX_HARDWARE_SAT] +=
+              player_company.cis[i]->sub_types[COMPANY_ST_IDX_HARDWARE_SAT].points;
+            break;
+          case TECH_TYPE_SOFTWARE:
+            player_company.tps[PLAYER_TPS_IDX_SOFTWARE_SCI] +=
+              player_company.cis[i]->sub_types[COMPANY_ST_IDX_SOFTWARE_SCI].points;
+            player_company.tps[PLAYER_TPS_IDX_SOFTWARE_SEC] +=
+              player_company.cis[i]->sub_types[COMPANY_ST_IDX_SOFTWARE_SEC].points;
+            player_company.tps[PLAYER_TPS_IDX_SOFTWARE_PRD] +=
+              player_company.cis[i]->sub_types[COMPANY_ST_IDX_SOFTWARE_PRD].points;
+            break;
+          case TECH_TYPE_ADS:
+            player_company.tps[PLAYER_TPS_IDX_ADS_ACO] +=
+              player_company.cis[i]->sub_types[COMPANY_ST_IDX_ADS_ACO].points;
+            player_company.tps[PLAYER_TPS_IDX_ADS_VIS] +=
+              player_company.cis[i]->sub_types[COMPANY_ST_IDX_ADS_VIS].points;
+            player_company.tps[PLAYER_TPS_IDX_ADS_THO] +=
+              player_company.cis[i]->sub_types[COMPANY_ST_IDX_ADS_THO].points;
+            break;
+          case TECH_TYPE_DRUGS:
+            player_company.tps[PLAYER_TPS_IDX_DRUGS_MOO] +=
+              player_company.cis[i]->sub_types[COMPANY_ST_IDX_DRUGS_MOO].points;
+            player_company.tps[PLAYER_TPS_IDX_DRUGS_HAL] +=
+              player_company.cis[i]->sub_types[COMPANY_ST_IDX_DRUGS_HAL].points;
+            player_company.tps[PLAYER_TPS_IDX_DRUGS_AHA] +=
+              player_company.cis[i]->sub_types[COMPANY_ST_IDX_DRUGS_AHA].points;
+            break;
+        }
+      }
+    }
+  }
+}
+
 int player_add_company_investment(struct st_company *company) {
   if (company != NULL) {
     int i;

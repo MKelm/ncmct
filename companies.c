@@ -49,30 +49,30 @@ void companies_add_single(int i) {
   switch (r) {
     case 0:
       companies[i].type = TECH_TYPE_HARDWARE;
-      companies[i].sub_types[0].type = TECH_TYPE_HARDWARE_NET;
-      companies[i].sub_types[1].type = TECH_TYPE_HARDWARE_COM;
-      companies[i].sub_types[2].type = TECH_TYPE_HARDWARE_SAT;
+      companies[i].sub_types[COMPANY_ST_IDX_HARDWARE_NET].type = TECH_TYPE_HARDWARE_NET;
+      companies[i].sub_types[COMPANY_ST_IDX_HARDWARE_COM].type = TECH_TYPE_HARDWARE_COM;
+      companies[i].sub_types[COMPANY_ST_IDX_HARDWARE_SAT].type = TECH_TYPE_HARDWARE_SAT;
       companies[i].name = companies_get_name(company_names_hardware, r);
       break;
     case 1:
       companies[i].type = TECH_TYPE_SOFTWARE;
-      companies[i].sub_types[0].type = TECH_TYPE_SOFTWARE_SCI;
-      companies[i].sub_types[1].type = TECH_TYPE_SOFTWARE_SEC;
-      companies[i].sub_types[2].type = TECH_TYPE_SOFTWARE_PRD;
+      companies[i].sub_types[COMPANY_ST_IDX_SOFTWARE_SCI].type = TECH_TYPE_SOFTWARE_SCI;
+      companies[i].sub_types[COMPANY_ST_IDX_SOFTWARE_SEC].type = TECH_TYPE_SOFTWARE_SEC;
+      companies[i].sub_types[COMPANY_ST_IDX_SOFTWARE_PRD].type = TECH_TYPE_SOFTWARE_PRD;
       companies[i].name = companies_get_name(company_names_software, r);
       break;
     case 2:
       companies[i].type = TECH_TYPE_ADS;
-      companies[i].sub_types[0].type = TECH_TYPE_ADS_ACO;
-      companies[i].sub_types[1].type = TECH_TYPE_ADS_VIS;
-      companies[i].sub_types[2].type = TECH_TYPE_ADS_THO;
+      companies[i].sub_types[COMPANY_ST_IDX_ADS_ACO].type = TECH_TYPE_ADS_ACO;
+      companies[i].sub_types[COMPANY_ST_IDX_ADS_VIS].type = TECH_TYPE_ADS_VIS;
+      companies[i].sub_types[COMPANY_ST_IDX_ADS_THO].type = TECH_TYPE_ADS_THO;
       companies[i].name = companies_get_name(company_names_ads, r);
       break;
     case 3:
       companies[i].type = TECH_TYPE_DRUGS;
-      companies[i].sub_types[0].type = TECH_TYPE_DRUGS_MOO;
-      companies[i].sub_types[1].type = TECH_TYPE_DRUGS_HAL;
-      companies[i].sub_types[2].type = TECH_TYPE_DRUGS_AHA;
+      companies[i].sub_types[COMPANY_ST_IDX_DRUGS_MOO].type = TECH_TYPE_DRUGS_MOO;
+      companies[i].sub_types[COMPANY_ST_IDX_DRUGS_HAL].type = TECH_TYPE_DRUGS_HAL;
+      companies[i].sub_types[COMPANY_ST_IDX_DRUGS_AHA].type = TECH_TYPE_DRUGS_AHA;
       companies[i].name = companies_get_name(company_names_drugs, r);
       break;
   }
