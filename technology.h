@@ -33,7 +33,6 @@ void technology_init(void);
 double technology_get_min_points(int tl);
 double technology_get_max_points(int tl);
 
-int technology_get_level(double points);
 double technology_get_costs(int tl, double points);
 
 void technology_get_type_str(char *type_str, int type);

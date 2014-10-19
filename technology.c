@@ -50,16 +50,6 @@ double technology_get_max_points(int tl) {
   return (double)tech_levels[tl-1].max_points;
 }
 
-int technology_get_level(double points) {
-  int i = 0, tl = 0;
-  for (i = 0; i < MAX_TECH_LEVELS; i++) {
-    if (points >= tech_levels[i].min_points) {
-      tl++;
-    }
-  }
-  return tl;
-}
-
 double technology_get_costs(int tl, double points) {
   int i = tl - 1;
   return (double)tech_levels[i].base_costs +
