@@ -61,6 +61,9 @@ int main(void) {
         dsp_set_output("Company investment done.\n\n");
       }
 
+    } else if (strcmp(input[0], "tech") == 0 && strcmp(input[1], "points") == 0) {
+      dsp_set_output(player_get_company_technology_points());
+
     } else if (strcmp(input[0], "next") == 0 && strcmp(input[1], "round") == 0) {
       // switch to next round
       dsp_set_output("Set next round done.\n\n");
