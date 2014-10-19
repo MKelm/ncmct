@@ -5,7 +5,7 @@
 
 struct company_sub_type {
   int type;
-  double strength;
+  double points;
 };
 
 struct company {
@@ -13,10 +13,9 @@ struct company {
   int type;
   int last_rank;
   int age; // in rounds
-  double points; // sum of strength values each round
-  int tl; // techlevel depends on points
+  int tl; // technology level
   char *name;
-  double strength;
+  double points; // sum of sub types costs
   struct company_sub_type sub_types[3];
 };
 

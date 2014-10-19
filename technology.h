@@ -22,12 +22,16 @@
 #define TECH_TYPE_DRUGS_AHA 17 // acoustic hallucinations
 
 struct tech_level {
-  int min_points; // minimum of points to get tech level
+  int min_points; // minimum of points for each tech sub type
+  int max_points; // maximum of points for each tech sub type
   int base_costs; // costs for investments in companies
   int point_costs; // costs for each point for investments in companies
 };
 
 void technology_init(void);
+
+double technology_get_min_points(int tl);
+double technology_get_max_points(int tl);
 
 int technology_get_level(double points);
 double technology_get_costs(int tl, double points);

@@ -39,8 +39,12 @@ void companies_add_single(int i) {
   int j, r;
   companies[i].id = last_company_id++;
   companies[i].age = 0;
-  companies[i].points = 0;
   companies[i].tl = 1;
+  if (helper_random_probability(0.25) == 1) {
+    // 1/4 probability to increase tech level of company at start
+    companies[i].tl = helper_random_int_min_max(0, 3) + 1; // tl 1-3
+  }
+
   r = helper_random_int_min_max(0, 4);
   switch (r) {
     case 0:
@@ -73,19 +77,13 @@ void companies_add_single(int i) {
       break;
   }
   companies[i].last_rank = -1;
-  companies[i].strength = 0.0;
+  companies[i].points = 0.0;
   for (j = 0; j < 3; j++) {
-    companies[i].sub_types[j].strength = helper_random_float_min_max(0.0, 10.0);
-    companies[i].strength += companies[i].sub_types[j].strength;
-  }
-  companies[i].points += companies[i].strength;
-
-  if (helper_random_probability(0.25) == 1) {
-    // 1/4 probability to increase age of company at start
-    r = helper_random_int_min_max(0, 10); // max age 10 rounds
-    for (j = 0; j <= r; j++) {
-      companies_recalculate_single(i);
-    }
+    companies[i].sub_types[j].points = helper_random_float_min_max(
+      technology_get_min_points(companies[i].tl),
+      technology_get_max_points(companies[i].tl)
+    );
+    companies[i].points += companies[i].sub_types[j].points;
   }
 }
 
@@ -97,6 +95,7 @@ void companies_recalculate(void) {
       companies_add_single(i);
     } else {
       companies[i].last_rank = i;
+      companies[i].age++;
       companies_recalculate_single(i);
     }
   }
@@ -105,30 +104,42 @@ void companies_recalculate(void) {
 
 void companies_recalculate_single(int i) {
   int j;
-  companies[i].age++;
   if (helper_random_probability(0.25) == 1) {
-    // 1/4 probability to change strength
-    companies[i].strength = 0;
+    // 1/4 probability to change tech level or tech points
+    companies[i].points = 0;
+
+    if (helper_random_probability(0.1) == 1 && companies[i].tl < MAX_TECH_LEVELS) {
+      // 1/10 probability to increase tech level of company
+      companies[i].tl++;
+      for (j = 0; j < 3; j++) {
+        companies[i].sub_types[j].points = helper_random_float_min_max(
+          technology_get_min_points(companies[i].tl),
+          technology_get_max_points(companies[i].tl)
+        );
+        companies[i].points += companies[i].sub_types[j].points;
+      }
+    }
+
     for (j = 0; j < 3; j++) {
       if (helper_random_probability(0.333) == 1) {
         // 1/3 probability to change a single strength
         if (helper_random_probability(0.5) == 1) {
           // 1/2 probability to change a strength up
-          companies[i].sub_types[j].strength = helper_random_float_min_max(
-            companies[i].sub_types[j].strength, 10.0
+          companies[i].sub_types[j].points = helper_random_float_min_max(
+            companies[i].sub_types[j].points,
+            technology_get_max_points(companies[i].tl)
           );
         } else {
           // 1/2 probability to change a strength down
-          companies[i].sub_types[j].strength = helper_random_float_min_max(
-            0.0, companies[i].sub_types[j].strength
+          companies[i].sub_types[j].points = helper_random_float_min_max(
+            technology_get_min_points(companies[i].tl),
+            companies[i].sub_types[j].points
           );
         }
       }
-      companies[i].strength += companies[i].sub_types[j].strength;
+      companies[i].points += companies[i].sub_types[j].points;
     }
   }
-  companies[i].points += companies[i].strength;
-  companies[i].tl = technology_get_level(companies[i].points);
 }
 
 void companies_sort(void) {
@@ -136,7 +147,7 @@ void companies_sort(void) {
   struct company tmp_company;
 
   for (i = 0; i < MAX_COMPANIES - 1; i++) {
-    if (companies[i].strength < companies[i+1].strength) {
+    if (companies[i].points < companies[i+1].points) {
       has_change = 1;
 
       tmp_company = companies[i];
@@ -159,7 +170,7 @@ char *companies_get_top5(int type, int user_tl) {
       snprintf(ch_str, 512, "%d. ", i+1);
       strcat(str, ch_str);
       strcat(str, companies[i].name);
-      snprintf(ch_str, 512, " / Points %.2f ", (double)companies[i].points);
+      snprintf(ch_str, 512, " / Points %.2f ", companies[i].points);
       strcat(str, ch_str);
 
       if (companies[i].last_rank == -1) {
@@ -182,7 +193,7 @@ char *companies_get_top5(int type, int user_tl) {
         technology_get_sub_type_str(type_str, companies[i].sub_types[j].type);
         snprintf(
           ch_str, 512, "%s = %.2f ",
-          type_str, companies[i].sub_types[j].strength
+          type_str, companies[i].sub_types[j].points
         );
         strcat(str, ch_str);
       }
