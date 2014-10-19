@@ -37,17 +37,25 @@ int main(void) {
   char input[4][256];
   do {
     main_split_input(dsp_get_input(), input);
+
     if (strcmp(input[0], "top5") == 0 && strlen(input[1]) > 0) {
+      // top 5 list of companies by type / player's tech level
       int type_id = technology_get_type_id(input[1]);
       if (type_id > -1) {
         dsp_set_output(companies_get_top5(type_id, player_get_tl()));
       }
+
     } else if (strcmp(input[0], "invest") == 0 && strlen(input[1]) > 0) {
-      if (player_add_company(companies_get_company(atoi(input[1])-1, player_get_tl())) == 1) {
+      // add company investment by rank id
+      if (player_add_company_investment(
+            companies_get_company(atoi(input[1])-1, player_get_tl())
+          ) == 1) {
         player_info_change = 1;
         dsp_set_output("Company investment done.\n\n");
       }
+
     } else if (strcmp(input[0], "next") == 0 && strcmp(input[1], "round") == 0) {
+      // switch to next round
       dsp_set_output("Set next round done.\n\n");
       round_set_current_end();
     }

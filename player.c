@@ -18,8 +18,14 @@ void player_init(void) {
   player_company.cis_idx = 0;
 }
 
-int player_add_company(struct st_company *company) {
+int player_add_company_investment(struct st_company *company) {
   if (company != NULL) {
+    int i;
+    for (i = 0; i < PLAYER_MAX_CIS; i++) {
+      if (player_company.cis[i] != NULL && player_company.cis[i]->id == company->id) {
+        return -1;
+      }
+    }
     float costs = technology_get_costs(company->tl, company->points);
     if (costs <= player_company.cash && player_company.cis_idx < PLAYER_MAX_CIS) {
       player_company.cash -= costs;

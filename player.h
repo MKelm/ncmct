@@ -32,7 +32,7 @@ struct st_player_company {
 
 void player_init(void);
 
-int player_add_company(struct st_company *company);
+int player_add_company_investment(struct st_company *company);
 
 int player_get_tl(void);
 float player_get_cash(void);
