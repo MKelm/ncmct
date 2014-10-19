@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <pthread.h>
@@ -11,6 +12,8 @@
 
 void *main_timer(void *val);
 void main_split_input(char *input, char input_arr[4][256]);
+
+int player_info_change = 0;
 
 int main(void) {
   helper_set_random_seed();
@@ -38,6 +41,12 @@ int main(void) {
       int type_id = technology_get_type_id(input[1]);
       if (type_id > -1) {
         dsp_set_output(companies_get_top5(type_id, player_get_tl()));
+      }
+    } else if (strcmp(input[0], "invest") == 0 && strlen(input[1]) > 0) {
+      int cid = companies_get_cid(atoi(input[1])-1, player_get_tl());
+      if (cid > -1 && player_add_ci(cid, companies_get_ccosts(cid)) == 1) {
+        player_info_change = 1;
+        dsp_set_output("Company investment done.\n\n");
       }
     }
   } while (strcmp(input[0], "quit") != 0);
@@ -67,6 +76,9 @@ void *main_timer(void *val) {
         companies_recalculate();
       }
       round_init();
+    }
+    if (player_info_change == 1) {
+      dsp_set_player_info("Anuka", player_get_cash(), player_get_tl());
     }
     sleep(1);
   }

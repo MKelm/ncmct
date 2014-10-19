@@ -158,6 +158,28 @@ void companies_sort(void) {
   if (has_change == 1) companies_sort();
 }
 
+int companies_get_cid(int i, int tl) {
+  if (i > 0 && i < MAX_COMPANIES) {
+    if (tl > 0) {
+      if (companies[i].tl == tl)
+        return companies[i].id;
+    } else {
+      return companies[i].id;
+    }
+  }
+  return -1;
+}
+
+double companies_get_ccosts(int id) {
+  int i;
+  for (i = 0; i < MAX_COMPANIES - 1; i++) {
+    if (companies[i].id == id) {
+      return technology_get_costs(companies[i].tl, companies[i].points);
+    }
+  }
+  return 0.0;
+}
+
 char *companies_get_top5(int type, int user_tl) {
   static char str[1024];
   char ch_str[512], type_str[128];

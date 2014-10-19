@@ -1,11 +1,14 @@
 #define PLAYER_MAX_TITLE_CHARS 256
 #define PLAYER_MAX_TPS 12
+#define PLAYER_MAX_CIS 20
 
 struct st_player_company {
   char title[PLAYER_MAX_TITLE_CHARS];
   int tl; // tech level
   double tps[PLAYER_MAX_TPS]; // tech points for each tech sub type
-  int cash;
+  double cash;
+  int cis[PLAYER_MAX_CIS]; // company investments by company id
+  int cis_idx;
 };
 
 // index values for tech points array
@@ -26,5 +29,8 @@ struct st_player_company {
 #define PLAYER_TPS_IDX_DRUGS_AHA 11 // acoustic hallucinations
 
 void player_init(void);
+
+int player_add_ci(int cid, double costs);
+
 int player_get_tl(void);
-int player_get_cash(void);
+double player_get_cash(void);

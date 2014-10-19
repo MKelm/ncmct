@@ -10,13 +10,27 @@ void player_init(void) {
   for (i = 0; i < PLAYER_MAX_TPS; i++) {
     player_company.tps[i] = 0.0;
   }
-  player_company.cash = 10000;
+  player_company.cash = 10000.00;
+  for (i = 0; i < PLAYER_MAX_CIS; i++) {
+    player_company.cis[i] = -1;
+  }
+  player_company.cis_idx = 0;
+}
+
+int player_add_ci(int cid, double costs) {
+  if (costs <= player_company.cash && player_company.cis_idx < PLAYER_MAX_CIS) {
+    player_company.cash -= costs;
+    player_company.cis[player_company.cis_idx] = cid;
+    player_company.cis_idx++;
+    return 1;
+  }
+  return -1;
 }
 
 int player_get_tl(void) {
   return player_company.tl;
 }
 
-int player_get_cash(void) {
+double player_get_cash(void) {
   return player_company.cash;
 }

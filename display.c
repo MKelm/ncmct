@@ -67,10 +67,10 @@ void dsp_set_meta(char *title, char *version, char *author, char *year) {
   wrefresh(footer);
 }
 
-void dsp_set_player_info(char *location, int cash, int tech_level) {
+void dsp_set_player_info(char *location, double cash, int tech_level) {
   wclear(header_left);
   char chstr[256];
-  snprintf(chstr, 256, "%s / %d$ / TL %d", location, cash, tech_level);
+  snprintf(chstr, 256, "%s / %.2f$ / TL %d", location, cash, tech_level);
   mvwaddstr(header_left, 0, 1, chstr);
   wrefresh(header_left);
 }
