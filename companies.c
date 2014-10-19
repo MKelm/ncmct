@@ -171,6 +171,16 @@ struct st_company *companies_get_company(int i, int tl) {
   return NULL;
 }
 
+struct st_company *companies_get_company_by_id(int id) {
+  int i;
+  for (i = 0; i < MAX_COMPANIES; i++) {
+    if (companies[i].id == id) {
+      return &companies[i];
+    }
+  }
+  return NULL;
+}
+
 char *companies_get_top5(int type, int user_tl) {
   static char str[1024];
   char ch_str[512], type_str[128];

@@ -9,8 +9,9 @@ struct st_player_company {
   int tl; // tech level
   float tps[PLAYER_MAX_TPS]; // tech points for each tech sub type
   float cash;
+  int cids_idx;
+  int cids[PLAYER_MAX_CIS]; // company investments ids
   struct st_company *cis[PLAYER_MAX_CIS]; // company investments
-  int cis_idx;
 };
 
 // index values for tech points array

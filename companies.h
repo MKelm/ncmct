@@ -43,6 +43,7 @@ void companies_recalculate_single(int i);
 void companies_sort(void);
 
 struct st_company *companies_get_company(int i, int tl);
+struct st_company *companies_get_company_by_id(int id);
 
 char *companies_get_top5(int type, int user_tl);
 
