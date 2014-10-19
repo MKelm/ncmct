@@ -34,6 +34,8 @@ struct st_player_company {
 void player_init(void);
 void player_update_company_investments(void);
 
+void player_remove_company_investment(int i);
+
 int player_add_company_investment(struct st_company *company);
 char *player_get_company_investments(int type);
 

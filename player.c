@@ -28,9 +28,9 @@ void player_update_company_investments(void) {
         player_company.cis[i] = companies_get_company_by_id(player_company.cids[i]);
       }
       if (player_company.cis[i] != NULL) {
-        if (player_company.cis[i]->age == 0) {
-          player_company.cis[i] = NULL;
-          player_company.cids[i] = -1;
+        if (player_company.cis[i]->age == 0 ||
+            player_company.cis[i]->tl > player_company.tl) {
+          player_remove_company_investment(i);
 
         } else {
           switch (player_company.cis[i]->type) {
@@ -69,6 +69,20 @@ void player_update_company_investments(void) {
           }
         }
       }
+    }
+  }
+}
+
+void player_remove_company_investment(int i) {
+  int j, has_change = 0;
+  for (j = 0; j < PLAYER_MAX_CIS; j++) {
+    if (j == i) {
+      has_change = 1;
+    } else if (has_change == 1) {
+      player_company.cis[i-1] = player_company.cis[i];
+      player_company.cids[i-1] = player_company.cids[i];
+      player_company.cis[i] = NULL;
+      player_company.cids[i] = -1;
     }
   }
 }
