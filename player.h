@@ -7,8 +7,8 @@
 struct st_player_company {
   char title[PLAYER_MAX_TITLE_CHARS];
   int tl; // tech level
-  double tps[PLAYER_MAX_TPS]; // tech points for each tech sub type
-  double cash;
+  float tps[PLAYER_MAX_TPS]; // tech points for each tech sub type
+  float cash;
   struct st_company *cis[PLAYER_MAX_CIS]; // company investments
   int cis_idx;
 };
@@ -35,4 +35,4 @@ void player_init(void);
 int player_add_company(struct st_company *company);
 
 int player_get_tl(void);
-double player_get_cash(void);
+float player_get_cash(void);

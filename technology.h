@@ -32,10 +32,10 @@ struct st_tech_level {
 
 void technology_init(void);
 
-double technology_get_min_points(int tl);
-double technology_get_max_points(int tl);
+float technology_get_min_points(int tl);
+float technology_get_max_points(int tl);
 
-double technology_get_costs(int tl, double points);
+float technology_get_costs(int tl, float points);
 
 int technology_get_type_id(char *type_str);
 

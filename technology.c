@@ -43,18 +43,18 @@ void technology_init(void) {
   tech_levels[6].point_costs = 70;
 }
 
-double technology_get_min_points(int tl) {
-  return (double)tech_levels[tl-1].min_points;
+float technology_get_min_points(int tl) {
+  return (float)tech_levels[tl-1].min_points;
 }
 
-double technology_get_max_points(int tl) {
-  return (double)tech_levels[tl-1].max_points;
+float technology_get_max_points(int tl) {
+  return (float)tech_levels[tl-1].max_points;
 }
 
-double technology_get_costs(int tl, double points) {
+float technology_get_costs(int tl, float points) {
   int i = tl - 1;
-  return (double)tech_levels[i].base_costs +
-    points * (double)tech_levels[i].point_costs;
+  return (float)tech_levels[i].base_costs +
+    points * (float)tech_levels[i].point_costs;
 }
 
 int technology_get_type_id(char *type_str) {
