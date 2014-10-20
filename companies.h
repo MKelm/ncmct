@@ -22,7 +22,7 @@
 
 struct st_company_sub_type {
   int type;
-  float points;
+  float points; // research / tech points for sub type
 };
 
 struct st_company {
@@ -32,7 +32,8 @@ struct st_company {
   int age; // in rounds
   int tl; // technology level
   char *name;
-  float points; // sum of sub types costs
+  float points; // sum of sub types research / tech points
+  float cash; // profit each quarter depends on research / tech points
   struct st_company_sub_type sub_types[3];
 };
 

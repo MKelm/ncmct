@@ -3,6 +3,7 @@
 #include "helper.h"
 #include "technology.h"
 #include "companies.h"
+#include "profit.h"
 
 struct st_company companies[MAX_COMPANIES];
 
@@ -40,6 +41,7 @@ void companies_add_single(int i) {
   companies[i].id = last_company_id++;
   companies[i].age = 0;
   companies[i].tl = 1;
+  companies[i].cash = 0.0;
   if (helper_random_probability(0.25) == 1) {
     // 1/4 probability to increase tech level of company at start
     companies[i].tl = helper_random_int_min_max(0, 3) + 1; // tl 1-3
@@ -96,6 +98,7 @@ void companies_recalculate(void) {
     } else {
       companies[i].last_rank = i;
       companies[i].age++;
+      companies[i].cash += profit_get(companies[i].tl);
       companies_recalculate_single(i);
     }
   }
@@ -193,7 +196,10 @@ char *companies_get_top5(int type, int user_tl) {
       snprintf(ch_str, 512, "%d. ", i+1);
       strcat(str, ch_str);
       strcat(str, companies[i].name);
-      snprintf(ch_str, 512, " / Points %.2f ", companies[i].points);
+      snprintf(
+        ch_str, 512, " / Points %.2f / Cash %.2f$ ",
+        companies[i].points, companies[i].cash
+      );
       strcat(str, ch_str);
 
       if (companies[i].last_rank == -1) {
@@ -203,7 +209,7 @@ char *companies_get_top5(int type, int user_tl) {
         strcat(str, ch_str);
       }
 
-      snprintf(ch_str, 512, " Costs = %.2f",
+      snprintf(ch_str, 512, " Costs = %.2f$",
         technology_get_costs(companies[i].tl, companies[i].points));
       strcat(str, ch_str);
 

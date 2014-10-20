@@ -7,6 +7,7 @@
 #include "helper.h"
 #include "round.h"
 #include "technology.h"
+#include "profit.h"
 #include "companies.h"
 #include "player.h"
 
@@ -19,6 +20,7 @@ int main(void) {
   helper_set_random_seed();
 
   technology_init();
+  profit_init();
   companies_init();
 
   player_init();
