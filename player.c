@@ -35,6 +35,13 @@ void player_update_company_investments(void) {
           player_remove_company_investment(i);
 
         } else {
+          if (player_company.cis[i]->last_profit > 0.0) {
+            // 10% profit share
+            player_company.cash += 0.1 * player_company.cis[i]->last_profit;
+            player_company.cis[i]->cash -= 0.1 * player_company.cis[i]->last_profit;
+            player_company.cis[i]->last_profit -= 0.1 * player_company.cis[i]->last_profit;
+          }
+
           switch (player_company.cis[i]->type) {
             case TECH_TYPE_HARDWARE:
               player_company.tps[PLAYER_TPS_IDX_HARDWARE][PLAYER_TPS_IDX_HARDWARE_NET] +=
@@ -121,7 +128,10 @@ char *player_get_company_investments(int type) {
       snprintf(ch_str, 512, "%d. ", i+1);
       strcat(str, ch_str);
       strcat(str, player_company.cis[i]->name);
-      snprintf(ch_str, 512, " / Points %.2f ", player_company.cis[i]->points);
+      snprintf(
+        ch_str, 512, " / Points %.2f / Cash %.2f",
+        player_company.cis[i]->points, player_company.cis[i]->cash
+      );
       strcat(str, ch_str);
 
       strcat(str, "\n|-- ");

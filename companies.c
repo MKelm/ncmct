@@ -42,6 +42,7 @@ void companies_add_single(int i) {
   companies[i].age = 0;
   companies[i].tl = 1;
   companies[i].cash = 0.0;
+  companies[i].last_profit = 0.0;
   if (helper_random_probability(0.25) == 1) {
     // 1/4 probability to increase tech level of company at start
     companies[i].tl = helper_random_int_min_max(0, 3) + 1; // tl 1-3
@@ -98,7 +99,8 @@ void companies_recalculate(void) {
     } else {
       companies[i].last_rank = i;
       companies[i].age++;
-      companies[i].cash += profit_get(companies[i].tl);
+      companies[i].last_profit = profit_get(companies[i].tl);
+      companies[i].cash += companies[i].last_profit;
       companies_recalculate_single(i);
     }
   }

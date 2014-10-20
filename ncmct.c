@@ -97,6 +97,7 @@ void *main_timer(void *val) {
       if (round_get_current_end() == 1) {
         companies_recalculate();
         player_update_company_investments();
+        player_info_change = 1;
       }
       round_init();
     }
